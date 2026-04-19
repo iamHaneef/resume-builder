@@ -1,10 +1,19 @@
-# Career Catalyst Tool
+# 💼 Career Catalyst Tool
 
 A simple web-based project focused on career-related UI, including resume pages and basic interactions, built using HTML, CSS, JavaScript, and SCSS.
 
 ---
 
-## Project Structure
+## 📄 Features
+
+- Resume-style UI pages  
+- Multiple sections for career information  
+- Styled using SCSS  
+- Basic JavaScript interactions  
+
+---
+
+## 🧩 Project Structure
 
 ```bash
 career-catalyst-tool/
@@ -20,7 +29,6 @@ career-catalyst-tool/
 │   └── resume.scss     # Resume page styles
 │
 ├── js/
-|   └── app.js
 │   └── script.js
 │
 ├── assets/
