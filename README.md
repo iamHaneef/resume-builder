@@ -37,6 +37,6 @@ This project focuses on UI design, form handling, and dynamic data input using J
 
 ---
 
-## ▶️ Live Demo
+## 🌐 Live Demo
 
 > **[https://carriercatalysttool.netlify.app](https://carriercatalysttool.netlify.app)**
