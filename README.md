@@ -1,4 +1,4 @@
-# Resume Builder (Career Catalyst Tool)
+# Resume Builder
 
 ## 📌 Overview
 
