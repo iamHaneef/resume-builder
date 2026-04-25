@@ -1,37 +1,42 @@
-# 💼 Career Catalyst Tool
+# Resume Builder (Career Catalyst Tool)
 
-A simple web-based project focused on career-related UI, including resume pages and basic interactions, built using HTML, CSS, JavaScript, and SCSS.
+## 📌 Overview
 
----
+A web-based resume builder that allows users to create structured CV data through an interactive form interface.
 
-## 📄 Features
-
-- Resume-style UI pages  
-- Multiple sections for career information  
-- Styled using SCSS  
-- Basic JavaScript interactions  
+This project focuses on UI design, form handling, and dynamic data input using JavaScript.
 
 ---
 
-## 🧩 Project Structure
+## ⚡ Features
 
-```bash
-career-catalyst-tool/
-│
-├── index.html
-├── resume.html
-│
-├── css/
-│   └── main.css        # Compiled CSS
-│
-├── scss/
-│   ├── main.scss       # Main SCSS file
-│   └── resume.scss     # Resume page styles
-│
-├── js/
-│   └── script.js
-│
-├── assets/
-│   └── (images)
-│
-└── README.md
+- Dynamic form-based resume creation  
+- Multiple sections (personal details, achievements, experience)  
+- Structured data input and organization  
+- Clean and responsive UI  
+- SCSS-based styling  
+
+---
+
+## 🛠️ Tech Stack
+
+- HTML  
+- CSS / SCSS  
+- JavaScript  
+
+---
+
+## 📸 Preview
+
+### 📝 Resume Form
+![Form UI](./assets/page3.jpeg)
+
+### 🎨 UI Overview
+![UI](./assets/page1.jpeg)
+![UI](./assets/page2.jpeg)
+
+---
+
+## ▶️ Live Demo
+
+> **[https://carriercatalysttool.netlify.app](https://carriercatalysttool.netlify.app)**
