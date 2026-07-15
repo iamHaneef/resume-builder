@@ -320,8 +320,6 @@ h6:hover {
   grid-column: 1;
   grid-row: 1;
   justify-self: start;
-
-
 }
 
 .spinner::after,
@@ -535,22 +533,120 @@ h6:hover {
 }
 
 /* Buttons */
-.btn-primary {
-  padding: 18px 60px;
-  background: black;
-  color: var(--clr-white);
-  border-radius: 36px;
-  position: relative;
-  left: 450px;
-  bottom: 220px;
+
+/* Section One */
+/* ==========================
+   Section One
+========================== */
+
+.section-one {
+  padding: 6.4rem 0;
+  background: var(--clr-bright);
+
   @include hplaptop() {
     position: relative;
-    left: 0px;
-    margin-right: 68px;
-
-    bottom: 530px;
-    padding: 15px 35px;
   }
+}
+
+.section-one-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "image video"
+    "resume interview";
+
+  align-items: center;
+  gap: 5rem 6rem;
+}
+
+.top-left {
+  grid-area: image;
+}
+
+.top-right {
+  grid-area: video;
+}
+
+.bottom-left {
+  grid-area: resume;
+}
+
+.bottom-right {
+  grid-area: interview;
+}
+
+.top-left img,
+.bottom-right img {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.top-left img:hover,
+.bottom-right img:hover {
+  transform: scale(1.05);
+}
+
+.top-left img,
+.bottom-right img {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.top-left img:hover,
+.bottom-right img:hover {
+  transform: scale(1.05);
+}
+
+//for buttons section one :
+.top-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.section-one-title {
+  text-align: center;
+  line-height: 1.3;
+  max-width: 560px;
+}
+
+.btn-secondary {
+  padding: 15px 50px;
+  background: #000;
+  color: #fff;
+  border: 2px solid #6b7280;
+  border-radius: 40px;
+  transition: 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #004b34;
+  border-color: #004b34;
+}
+
+.bottom-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.section-one-subtitle {
+  line-height: 1.4;
+  max-width: 560px;
+}
+
+.btn-primary {
+  padding: 15px 50px;
+  background: #000;
+  color: #fff;
+  border-radius: 40px;
+  transition: 0.3s ease;
 }
 
 .btn-primary:hover {
@@ -559,130 +655,31 @@ h6:hover {
   color: var(--clr-blue);
 }
 
-.btn-secondary {
-  position: relative;
-  bottom: 490px;
-  left: 510px;
-  padding: 20px 50px;
-  border-radius: 30px 0px 30px 30px;
-  background: black;
-  border: 2px solid var(--clr-grey);
-  color: white;
-  @include hplaptop() {
-    position: relative;
-    left: 0px;
-    margin-right: 80px;
+.section-one-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "image video"
+    "resume interview";
 
-    bottom: 690px;
-    padding: 13px 35px;
-  }
-}
-
-.btn-secondary:hover {
-  background-color: #004b34;
-  color: white;
-  border: none;
-  transition: 0.4s ease;
-  padding: 25px 73px;
-  margin-right: 9px;
-  @include hplaptop() {
-    position: relative;
-    padding: 13px 35px;
-    margin: 0px;
-    margin-right: 80px;
-  }
-}
-
-.btn-group {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-/* Section One */
-.section-one {
-  height: 105vh;
-  padding: 6.4rem 0;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: var(--clr-bright);
+  gap: 4rem 5rem;
+}
 
-  @include hplaptop() {
-    height: 150vh;
-    position: relative;
-    overflow: hidden;
+.top-left img,
+.bottom-right img {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+}
+
+@include hplaptop() {
+  .btn-primary,
+  .btn-secondary {
+    padding: 14px 36px;
+    font-size: 1rem;
+    border-radius: 32px;
   }
-}
-.one {
-  position: relative;
-  top: 60px;
-  right: 350px;
-  @include hplaptop() {
-    position: relative;
-    width: 430px;
-    right: 20px;
-    //left: 0px;
-    top: 45px;
-    margin-bottom: 500px;
-  }
-}
-.two {
-  position: relative;
-  top: 85px;
-  left: 350px;
-  @include hplaptop() {
-    position: relative;
-    width: 470px;
-    //left:0px;
-    left: -60px;
-    top: 0px;
-    margin-bottom: 90px;
-  }
-}
-.section-one .section-one-l img {
-  max-width: 645px;
-  transition: transform 0.5s ease;
-}
-
-.section-one .section-one-l img:hover {
-  transform: scale(1.1);
-}
-
-h3 {
-  position: relative;
-  right: 370px;
-  bottom: 100px;
-  font-size: 22px;
-  @include hplaptop() {
-    position: relative;
-
-    left: 0px;
-    padding-top: 60px;
-
-    max-width: 85%;
-  }
-}
-h2 {
-  position: relative;
-  bottom: 470px;
-  left: 300px;
-  right: 0px;
-  @include hplaptop() {
-    position: relative;
-    left: 0px;
-    max-width: 82%;
-    bottom: 675px;
-  }
-}
-
-.section-one .section-one-r {
-  margin-top: 4rem;
-}
-
-.section-one .btn-group {
-  margin-bottom: 6rem;
 }
 
 /* Section Two */
@@ -749,64 +746,48 @@ p {
     font-size: 15px;
   }
 }
+
+//final
 .final {
-  height: 110vh;
-  @include hplaptop() {
-    height: 80vh;
+  padding: 6rem 0;
+  background: rgb(253, 239, 222);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 6rem;
+}
+.final img {
+  flex: 0 0 440px;
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+}
+.final h3 {
+  font-size: 3rem;
+  line-height: 1.35;
+  max-width: 520px;
+  color: #1d2433;
+}
+
+@include hplaptop() {
+  .final {
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 3rem;
   }
 
-  img {
-    width: 33%;
-    height: 85%;
-    position: relative;
-    left: 250px;
-    top: 0px;
-    @include hplaptop() {
-      width: 74%;
-      position: relative;
-      left: 48px;
-      height: 65%;
-      top: 20px;
-    }
+  .final img {
+    max-width: 320px;
   }
-  a {
-    position: relative;
-    left: 75px;
-    bottom: 160px;
-    border-radius: 0px 40px 40px 40px;
-    padding: 20px 50px;
-    @include hplaptop() {
-      position: relative;
-      left: 100px;
-      bottom: 135px;
 
-      padding: 15px 35px;
-    }
-  }
-  a:hover {
-    background-color: #004b34;
-    color: white;
-    border: none;
-    transition: 0.4s ease;
-    padding: 25px 73px;
-    @include hplaptop() {
-      padding: 15px 35px;
-    }
-  }
-  h3 {
-    font-size: 43px;
-    max-width: 30%;
-    position: relative;
-    left: 940px;
-    bottom: 515px;
-    @include hplaptop() {
-      position: relative;
-      top: 20px;
-      left: 50px;
-      font-size: 15px;
-      max-width: 75%;
-      color: #00113f;
-    }
+  .final h3 {
+    font-size: 2rem;
+
+    max-width: 90%;
   }
 }
 /* Footer */
@@ -840,7 +821,7 @@ p {
   }
 
   .header h1 {
-    font-size: 2.0rem;
+    font-size: 2rem;
   }
 
   .header p {

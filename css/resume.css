@@ -1,18 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root {
-  --clr-blue: #1A91F0;
-  --clr-blue-mid: #1170CD;
-  --clr-blue-dark: #1A1C6A;
+  --clr-blue: #1a91f0;
+  --clr-blue-mid: #1170cd;
+  --clr-blue-dark: #1a1c6a;
   --clr-white: #fff;
-  --clr-bright: #EFF2F9;
+  --clr-bright: #eff2f9;
   --clr-dark: #1e2532;
   --clr-black: #000;
   --clr-grey: #656e83;
-  --clr-green: #084C41;
-  --clr-primary-gradient: linear-gradient(135deg, #1A91F0, #1170CD);
-  --clr-secondary-gradient: linear-gradient(135deg, #FF9A9E, #FAD0C4);
-  --font-poppins: 'Poppins', sans-serif;
-  --font-manrope: 'Manrope', sans-serif;
+  --clr-green: #084c41;
+  --clr-primary-gradient: linear-gradient(135deg, #1a91f0, #1170cd);
+  --clr-secondary-gradient: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  --font-poppins: "Poppins", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
   --transition: all 300ms ease-in-out;
   --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -38,7 +38,9 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-button, img, a {
+button,
+img,
+a {
   border: none;
   background: none;
   outline: none;
@@ -46,7 +48,8 @@ button, img, a {
   cursor: pointer;
 }
 
-button, a {
+button,
+a {
   display: inline-block;
   padding: 1rem 2rem;
   border-radius: 4px;
@@ -64,7 +67,8 @@ img:hover {
   transform: scale(1.05);
 }
 
-a:hover, button:hover {
+a:hover,
+button:hover {
   transform: translateY(-2px);
 }
 
@@ -213,18 +217,127 @@ a:hover, button:hover {
   transition: var(--transition);
 }
 
-/* Navbar */
+/* ===========================
+   Navbar
+=========================== */
 .navbar {
   height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: white;
-  padding: 0rem;
+  background: #fff;
   box-shadow: var(--box-shadow);
   animation: slideIn 1s ease-in-out;
 }
 
+.navbar .container {
+  max-width: 100%;
+  padding: 0 4rem;
+}
+
+.navbar-content {
+  width: 100%;
+}
+
+.brand-and-toggler {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 90px;
+  width: 100%;
+}
+
+/* ===========================
+   Center Title
+=========================== */
+h6 {
+  grid-column: 2;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 21px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: rgb(27, 62, 0);
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+@media screen and (max-width: 1000px) {
+  h6 {
+    font-size: 20px;
+  }
+}
+
+h6:hover {
+  color: gray;
+}
+
+/* ===========================
+   Right Brand
+=========================== */
+.navbar .navbar-brand {
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.navbar .navbar-brand img {
+  width: 35px;
+}
+@media screen and (max-width: 1000px) {
+  .navbar .navbar-brand img {
+    display: none;
+  }
+}
+
+.navbar .navbar-brand span {
+  font-size: 17px;
+  font-weight: 500;
+  color: rgb(70, 60, 0);
+  animation: fadeIn 1.5s ease-in-out;
+}
+@media screen and (max-width: 1000px) {
+  .navbar .navbar-brand span {
+    display: none;
+  }
+}
+
+/* ===========================
+   Left Spinner
+=========================== */
+.brand-and-toggler .spinner {
+  grid-column: 1;
+  justify-self: start;
+  --size: 17px;
+  --first-block-clr: #005bba;
+  --second-block-clr: #fed500;
+  width: 37px;
+  height: 37px;
+  position: relative;
+}
+
+.spinner::before,
+.spinner::after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  width: var(--size);
+  height: var(--size);
+  left: 50%;
+  top: 30%;
+  background: var(--first-block-clr);
+  animation: up 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+}
+
+.spinner::after {
+  background: var(--second-block-clr);
+  left: calc(50% - var(--size));
+  top: calc(50% - var(--size));
+  animation: down 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+}
+
+/* ===========================
+   Animations
+=========================== */
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -235,50 +348,6 @@ a:hover, button:hover {
     transform: translateY(0);
   }
 }
-.navbar .navbar-brand {
-  display: flex;
-  align-items: center;
-}
-
-h6 {
-  color: rgb(27, 62, 0);
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 23px;
-  position: relative;
-  right: 5px;
-  bottom: 35px;
-  cursor: pointer;
-}
-@media screen and (max-width: 1000px) {
-  h6 {
-    font-size: 20px;
-    position: relative;
-    bottom: 11px;
-    left: 0px;
-  }
-}
-
-h6:hover {
-  transition: 0.4s ease;
-  cursor: pointer;
-  font-size: 24px;
-  color: gray;
-}
-
-.navbar .navbar-brand img {
-  width: 44px;
-  position: relative;
-  top: 17px;
-  left: 650px;
-  margin-right: 8px;
-  animation: bounce 2s infinite;
-}
-@media screen and (max-width: 1000px) {
-  .navbar .navbar-brand img {
-    display: none;
-  }
-}
-
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);
@@ -287,49 +356,12 @@ h6:hover {
     transform: translateY(-10px);
   }
 }
-.navbar .brand-and-toggler .spinner {
-  --size: 21px;
-  --first-block-clr: #005bba;
-  --second-block-clr: #fed500;
-  --clr: #111;
-  width: 40px;
-  height: 0px;
-  position: relative;
-  bottom: 22px;
-  right: 620px;
-}
-
-.spinner::after, .spinner::before {
-  box-sizing: border-box;
-  position: absolute;
-  content: "";
-  width: var(--size);
-  height: var(--size);
-  top: 30%;
-  animation: up 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
-  left: 50%;
-  background: var(--first-block-clr);
-}
-
-.spinner::after {
-  background: var(--second-block-clr);
-  top: calc(50% - var(--size));
-  left: calc(50% - var(--size));
-  animation: down 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
-}
-
-@keyframes down {
-  0%, 100% {
-    transform: none;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  25% {
-    transform: translateX(100%);
-  }
-  50% {
-    transform: translateX(100%) translateY(100%);
-  }
-  75% {
-    transform: translateY(100%);
+  to {
+    opacity: 1;
   }
 }
 @keyframes up {
@@ -346,48 +378,20 @@ h6:hover {
     transform: translateY(-100%);
   }
 }
-.navbar .navbar-brand span {
-  transition: 0.3s ease;
-  font-weight: 500;
-  color: rgb(70, 60, 0);
-  font-size: 20px;
-  position: relative;
-  top: 8px;
-  left: 650px;
-  gap: 0px;
-  animation: fadeIn 1.5s ease-in-out;
-}
-@media screen and (max-width: 1000px) {
-  .navbar .navbar-brand span {
-    display: none;
+@keyframes down {
+  0%, 100% {
+    transform: none;
+  }
+  25% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(100%) translateY(100%);
+  }
+  75% {
+    transform: translateY(100%);
   }
 }
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-.navbar .navbar-toggler-btn {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 16.5px;
-  width: 25px;
-}
-
-.navbar .navbar-toggler-btn .bar {
-  height: 2px;
-  background-color: var(--clr-blue);
-}
-
-.navbar .navbar-toggler-btn:hover .bar {
-  background-color: var(--clr-dark);
-}
-
 /* resume page */
 #about-sc {
   padding: 64px 0;
@@ -406,7 +410,7 @@ h6:hover {
   }
 }
 .cv-form-row-title {
-  background: #1A1C6A;
+  background: #1a1c6a;
   padding: 0.8rem 1.6rem;
   margin-bottom: 2rem;
   border-radius: 4px;
@@ -488,7 +492,8 @@ textarea {
   width: 100%;
 }
 
-.cols-3, .cols-2 {
+.cols-3,
+.cols-2 {
   display: grid;
 }
 
@@ -741,7 +746,8 @@ textarea {
   .non_print_area {
     display: none;
   }
-  .print_area, .print_area * {
+  .print_area,
+  .print_area * {
     visibility: visible;
   }
   .print_area {
