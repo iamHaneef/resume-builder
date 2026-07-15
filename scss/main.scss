@@ -47,29 +47,29 @@ body {
   color: var(--clr-dark);
 }
 
-// body::-webkit-scrollbar {
-//   display: none;
-// }
-// body::-webkit-scrollbar-button {
-//   display: none;
-// }
+body::-webkit-scrollbar {
+  display: none;
+}
+body::-webkit-scrollbar-button {
+  display: none;
+}
 /* Chrome, Edge, Safari */
-::-webkit-scrollbar {
-  width: 8px;
-}
+// ::-webkit-scrollbar {
+//   width: 8px;
+// }
 
-::-webkit-scrollbar-track {
-  background: #f2f2f2;
-}
+// ::-webkit-scrollbar-track {
+//   background: #f2f2f2;
+// }
 
-::-webkit-scrollbar-thumb {
-  background: #7d7d7d;
-  border-radius: 10px;
-}
+// ::-webkit-scrollbar-thumb {
+//   background: #7d7d7d;
+//   border-radius: 10px;
+// }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
+// ::-webkit-scrollbar-thumb:hover {
+//   background: #555;
+// }
 
 // /* Firefox */
 // html {

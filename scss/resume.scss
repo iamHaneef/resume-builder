@@ -279,7 +279,8 @@ h6:hover {
   width: 35px;
 
   @include hplaptop() {
-    display: none;
+    display: block;
+    width: 32px;
   }
 }
 

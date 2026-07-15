@@ -285,7 +285,8 @@ h6:hover {
 }
 @media screen and (max-width: 1000px) {
   .navbar .navbar-brand img {
-    display: none;
+    display: block;
+    width: 32px;
   }
 }
 
