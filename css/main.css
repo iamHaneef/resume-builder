@@ -1172,7 +1172,7 @@ button:hover {
   z-index: 1;
   transform: translateY(-8px);
   width: 100%;
-  max-width: 410px;
+  max-width: 400px;
   height: auto;
   border-radius: 14px;
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08), 0 40px 80px rgba(15, 23, 42, 0.14);
