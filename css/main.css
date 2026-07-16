@@ -1291,21 +1291,27 @@ button:hover {
 }
 /* Footer */
 .footer {
-  padding: 3rem 0;
-  background: rgb(55, 55, 55);
-  color: white;
-  text-align: center;
+  padding: 2.8rem 0;
+  background: linear-gradient(180deg, #112b44 0%, #0f253d 100%);
+  color: rgba(255, 255, 255, 0.88);
+  overflow: hidden;
 }
+
 .footer-content p {
   margin: 0;
   font-size: 1.9rem;
-  color: white;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 400;
 }
 @media screen and (max-width: 1000px) {
   .footer-content p {
-    font-size: 12px;
-    position: relative;
+    font-size: 1.2rem;
   }
+}
+
+.footer-year {
+  color: #1ec99b;
+  font-weight: 500;
 }
 
 /*Media Queries */
