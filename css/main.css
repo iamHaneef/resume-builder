@@ -1107,27 +1107,171 @@ button:hover {
   bottom: 35px;
 }
 
+.final-image {
+  position: relative;
+  z-index: 2;
+}
+
 .final {
-  padding: 6rem 0;
-  background: rgb(253, 239, 222);
+  position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6rem;
+  gap: 5.5rem;
+  padding: 8rem 8%;
+  isolation: isolate;
+  background: radial-gradient(circle at 15% 55%, rgba(16, 185, 129, 0.04) 0%, rgba(16, 185, 129, 0.03) 22%, transparent 42%), radial-gradient(circle at 88% 42%, rgba(59, 130, 246, 0.025) 0%, transparent 35%), radial-gradient(circle at 55% 10%, rgba(255, 255, 255, 0.95) 0%, rgba(248, 252, 253, 0.98) 55%, #f6fbfc 100%);
+  position: relative;
+  isolation: isolate;
+}
+
+.resume-glow {
+  position: absolute;
+  width: 540px;
+  height: 540px;
+  left: 30px;
+  top: 56%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #0e4925;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.final::before {
+  content: "";
+  position: absolute;
+  left: 0%;
+  top: 8%;
+  width: 90px;
+  height: 150px;
+  background-image: radial-gradient(rgba(134, 231, 203, 0.9) 1.3px, transparent 1.3px);
+  background-size: 14px 14px;
+  opacity: 0.45;
+  z-index: 0;
+}
+
+.final::after {
+  content: "";
+  position: absolute;
+  right: 0%;
+  bottom: 14%;
+  width: 120px;
+  height: 120px;
+  opacity: 0.45;
+  background-image: radial-gradient(#86e7cb 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+  z-index: -1;
 }
 
 .final img {
-  flex: 0 0 440px;
+  flex: 0 0 420px;
+  position: relative;
+  z-index: 1;
+  transform: translateY(-8px);
   width: 100%;
-  max-width: 440px;
+  max-width: 420px;
   height: auto;
+  border-radius: 14px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08), 0 40px 80px rgba(15, 23, 42, 0.14);
+  transition: 0.35s ease;
 }
 
-.final h3 {
-  font-size: 3rem;
-  line-height: 1.35;
-  max-width: 520px;
-  color: #1d2433;
+.final-content {
+  max-width: 560px;
+  position: relative;
+  z-index: 2;
+}
+
+.preview-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 10px;
+  background: #edf8f3;
+  color: #12a874;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.preview-badge i {
+  font-size: 0.9rem;
+}
+
+.final-content h3 {
+  font-size: 3.65rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  word-spacing: 7px;
+  color: #18263d;
+  max-width: 650px;
+  margin-bottom: 1.7rem;
+}
+
+.title-line {
+  display: block;
+  width: 58px;
+  height: 4px;
+  border-radius: 50px;
+  background: #12b981;
+  margin-bottom: 2.5rem;
+}
+
+.final-content p {
+  max-width: 540px;
+  font-size: 1.6rem;
+  word-spacing: 2px;
+  line-height: 1.8;
+  color: #556274;
+  margin-bottom: 3.2rem;
+}
+
+.final-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 0.8rem;
+}
+
+.preview-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  width: 270px;
+  height: 50px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0e8f53 0%, #097248 45%, #0b5034 100%);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.12rem;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(16, 185, 129, 0.28);
+  transition: all 0.35s ease;
+}
+
+.preview-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px rgba(16, 185, 129, 0.35);
+}
+
+.preview-btn i:first-child {
+  font-size: 1rem;
+}
+
+.preview-btn i:last-child {
+  margin-left: 0.4rem;
+  transition: transform 0.3s ease;
+}
+
+.preview-btn:hover i:last-child {
+  transform: translateX(4px);
 }
 
 @media screen and (max-width: 1000px) {
