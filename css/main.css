@@ -1130,7 +1130,7 @@ button:hover {
   position: absolute;
   width: 530px;
   height: 530px;
-  left: 5%;
+  left: -135px;
   top: 50%;
   transform: translateY(-50%);
   border-radius: 50%;
