@@ -1410,29 +1410,21 @@ button:hover {
   width: 530px;
   height: 530px;
 
-  left: -135px;
+  left: 5%;
     top: 50%;
 
   transform: translateY(-50%);
 
   border-radius: 50%;
 
-  // background: #e4efea;   // very pale mint
-  background: green;
+  background: #e4efea;   // very pale mint
+  // background: green;
   z-index: 1;
   opacity: .45;
 
   pointer-events: none;
 }
-@media (min-width: 1800px) {
-  .resume-glow {
-    width: 470px;
-    height: 470px;
 
-    left: -170px;
-    top: 52%;
-  }
-}
 .final::before {
   content: "";
 
