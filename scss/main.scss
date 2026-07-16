@@ -1424,6 +1424,15 @@ button:hover {
 
   pointer-events: none;
 }
+@media (min-width: 1800px) {
+  .resume-glow {
+    width: 470px;
+    height: 470px;
+
+    left: -170px;
+    top: 52%;
+  }
+}
 .final::before {
   content: "";
 
