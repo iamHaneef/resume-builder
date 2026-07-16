@@ -318,7 +318,8 @@ button:hover {
 .navbar-brand-icon {
   width: 36px;
   height: 33px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   flex-shrink: 0;
   transition: transform 0.3s ease;
 }
@@ -812,7 +813,8 @@ button:hover {
   width: 100%;
   max-width: 560px;
   height: auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .top-left:hover img,
@@ -855,7 +857,8 @@ button:hover {
 .badge-icon {
   width: 32px;
   height: 32px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 /* ======================================================
@@ -1029,7 +1032,8 @@ button:hover {
 .section-two .section-item-icon img {
   width: 72px;
   height: 72px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: block;
 }
 
@@ -1128,15 +1132,14 @@ button:hover {
 
 .resume-glow {
   position: absolute;
-  width: 530px;
-  height: 530px;
-  left: 5%;
-  top: 50%;
+  width: 540px;
+  height: 540px;
+  left: 30px;
+  top: 56%;
   transform: translateY(-50%);
   border-radius: 50%;
-  background: #e4efea;
+  background: #0e4925;
   z-index: 1;
-  opacity: 0.45;
   pointer-events: none;
 }
 
@@ -1172,7 +1175,7 @@ button:hover {
   z-index: 1;
   transform: translateY(-8px);
   width: 100%;
-  max-width: 410px;
+  max-width: 420px;
   height: auto;
   border-radius: 14px;
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08), 0 40px 80px rgba(15, 23, 42, 0.14);
@@ -1329,6 +1332,4 @@ button:hover {
   .section-one .section-one-l {
     margin-bottom: 2rem;
   }
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

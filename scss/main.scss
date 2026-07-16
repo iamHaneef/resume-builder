@@ -1407,19 +1407,20 @@ button:hover {
 .resume-glow {
   position: absolute;
 
-  width: 540px;
-  height: 540px;
+  width: 530px;
+  height: 530px;
 
-  left: 30px;
-  top: 56%;
+  left: 5%;
+  top: 50%;
 
   transform: translateY(-50%);
 
   border-radius: 50%;
 
-  background: #0e4925; // testing only
+  background: #e4efea;   // very pale mint
 
   z-index: 1;
+  opacity: .45;
 
   pointer-events: none;
 }
@@ -1472,7 +1473,7 @@ button:hover {
   transform: translateY(-8px);
 
   width: 100%;
-  max-width: 420px;
+  max-width: 410px;
   height: auto;
 
   border-radius: 14px;
