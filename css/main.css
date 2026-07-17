@@ -712,9 +712,9 @@ button:hover {
   left: 0;
   width: 100%;
   background: #fff;
-  border: 1px solid rgba(220, 230, 226, 0.9);
+  border: 1px solid rgba(230, 238, 234, 0.5);
   border-radius: 28px;
-  box-shadow: 0 14px 40px rgba(25, 48, 40, 0.08), 0 6px 18px rgba(25, 48, 40, 0.05);
+  box-shadow: 0 18px 45px rgba(26, 54, 45, 0.05), 0 8px 24px rgba(26, 54, 45, 0.03);
   z-index: 1;
 }
 
@@ -873,6 +873,26 @@ button:hover {
    TEMPORARY BUTTON STYLES
    (Move into global button system later)
 ====================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+}
+
+.btn::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: url("../assets/white-arrow.png") center/contain no-repeat;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover::after {
+  transform: translateX(4px);
+}
+
 .btn-primary,
 .btn-secondary {
   padding: 16px 50px;
@@ -1023,7 +1043,14 @@ button:hover {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(104, 214, 180, 0.1) 0%, rgba(104, 214, 180, 0.05) 100%);
+  background: radial-gradient(circle, rgba(84, 193, 170, 0.16) 0%, rgba(84, 193, 170, 0.1) 70%, rgba(84, 193, 170, 0.06) 100%);
+}
+
+.section-two .section-item-icon .womenprofile {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+  display: block;
 }
 
 .section-two .section-item-icon img {
@@ -1055,6 +1082,7 @@ button:hover {
 }
 
 .section-two .section-item .text {
+  max-width: 245px;
   font-size: 1.2rem;
   line-height: 1.85;
   font-weight: 500;
@@ -1166,7 +1194,7 @@ button:hover {
   z-index: -1;
 }
 
-.final img {
+.final-image img {
   flex: 0 0 420px;
   position: relative;
   z-index: 1;
@@ -1198,6 +1226,39 @@ button:hover {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   margin-bottom: 2rem;
+}
+
+.preview-badge > .preview-eye-icon {
+  width: 18px !important;
+  height: 18px !important;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-right: 0.3rem;
+  margin-bottom: 0.1rem;
+}
+
+.preview-file-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-right: 0.4rem;
+}
+
+.preview-arrow-icon {
+  width: 14px;
+  height: 14px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  transition: transform 0.35s ease;
+}
+
+.preview-btn:hover .preview-arrow-icon {
+  transform: translateX(4px);
 }
 
 .preview-badge i {
@@ -1238,6 +1299,12 @@ button:hover {
   flex-direction: column;
   align-items: flex-start;
   padding-top: 0.8rem;
+}
+
+.preview-btn span {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1;
 }
 
 .preview-btn {
