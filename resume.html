@@ -83,15 +83,26 @@
 
                 <div class="cols-3">
                   <div class="form-elem">
-                    <label for="" class="form-label">Your Profile Image</label>
-                    <input
-                      name="image"
-                      type="file"
-                      class="form-control image"
-                      id=""
-                      accept="image/*"
-                      onchange="previewImage()"
-                    />
+                    <label class="form-label">Your Profile Image</label>
+
+                    <div class="upload-input">
+                      <input
+                        type="file"
+                        id="profileUpload"
+                        name="image"
+                        accept="image/*"
+                        onchange="previewImage()"
+                        class="image-upload"
+                      />
+
+                      <label for="profileUpload" class="upload-label">
+                        <span class="upload-btn"> Choose Image </span>
+
+                        <span class="upload-file-name">
+                          No image selected
+                        </span>
+                      </label>
+                    </div>
                   </div>
                   <div class="form-elem">
                     <label for="" class="form-label">Designation</label>

@@ -34,8 +34,22 @@ body {
   overflow-x: hidden;
 }
 
-body::-webkit-scrollbar {
-  display: none;
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2f2f2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7d7d7d;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 button,
@@ -221,19 +235,28 @@ button:hover {
    Navbar
 =========================== */
 .navbar {
-  height: 90px;
-  background: #fff;
-  box-shadow: var(--box-shadow);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background: #eff6f7;
+  box-shadow: 0 8px 30px rgba(15, 77, 67, 0.04);
+  border-bottom: 1px solid rgba(15, 77, 67, 0.05);
+  position: relative;
+  z-index: 100;
   animation: slideIn 1s ease-in-out;
 }
-
 .navbar .container {
-  max-width: 100%;
-  padding: 0 4rem;
-}
-
-.navbar-content {
   width: 100%;
+  max-width: 100%;
+  padding-inline: 42px;
+}
+.navbar .navbar-content {
+  width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .navbar .container {
+    padding-inline: 28px;
+  }
 }
 
 .brand-and-toggler {
@@ -258,12 +281,12 @@ h6 {
   transition: color 0.3s ease;
   cursor: pointer;
 }
-
 @media screen and (max-width: 1000px) {
   h6 {
     font-size: 20px;
   }
 }
+
 h6:hover {
   color: gray;
 }
@@ -283,25 +306,25 @@ h6:hover {
 .navbar .navbar-brand img {
   width: 35px;
 }
-
 @media screen and (max-width: 1000px) {
   .navbar .navbar-brand img {
     display: block;
     width: 32px;
   }
 }
+
 .navbar .navbar-brand span {
   font-size: 17px;
   font-weight: 500;
   color: rgb(70, 60, 0);
   animation: fadeIn 1.5s ease-in-out;
 }
-
 @media screen and (max-width: 1000px) {
   .navbar .navbar-brand span {
     display: none;
   }
 }
+
 /* ===========================
    Left Spinner
 =========================== */
@@ -397,7 +420,7 @@ h6:hover {
 #about-sc {
   padding: 64px 0;
   animation: fadeInUp 1s ease-in-out;
-  background: linear-gradient(to right, #e3f2fd, #bbdefb, #90caf9);
+  background: radial-gradient(circle at 14% 18%, rgba(152, 220, 196, 0.22) 0%, transparent 30%), radial-gradient(circle at 88% 76%, rgba(194, 233, 221, 0.18) 0%, transparent 32%), linear-gradient(180deg, #edf8f4 0%, #f5fbf9 48%, #eef8f5 100%);
 }
 
 @keyframes fadeInUp {
@@ -411,10 +434,10 @@ h6:hover {
   }
 }
 .cv-form-row-title {
-  background: #1a1c6a;
+  background: #183a4a;
   padding: 0.8rem 1.6rem;
   margin-bottom: 2rem;
-  border-radius: 4px;
+  border-radius: 10px;
   animation: slideInLeft 1s ease-in-out;
 }
 
@@ -441,13 +464,13 @@ h6:hover {
 }
 
 .cv-form-row {
-  background: linear-gradient(to right, #a2d9ff, #d4f3ff, #a2d9ff);
+  background: linear-gradient(180deg, #fcfbf8 0%, #f7f5f1 100%);
   padding: 3rem 2rem 0 2rem;
-  border: 1px solid rgba(189, 189, 189, 0.08);
   margin-bottom: 1rem;
   position: relative;
-  border-radius: 4px;
-  box-shadow: var(--box-shadow);
+  border-radius: 18px;
+  border: 1px solid rgba(15, 77, 67, 0.06);
+  box-shadow: 0 10px 30px rgba(15, 77, 67, 0.05), 0 2px 8px rgba(15, 77, 67, 0.03);
 }
 
 textarea {
@@ -464,23 +487,92 @@ textarea {
   font-weight: 600;
   font-size: 14px;
   color: var(--clr-dark);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.65rem;
 }
 
 .form-control {
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 14px;
-  padding: 0.8rem 1.6rem;
-  font-family: inherit;
   width: 100%;
-  outline: 0;
-  transition: var(--transition);
+  height: 50px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-family: inherit;
+  background: #ffffff;
+  color: #1f2937;
+  border: 1px solid rgba(15, 77, 67, 0.1);
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 2px rgba(15, 77, 67, 0.03);
+}
+
+.form-control:hover {
+  border-color: rgba(15, 77, 67, 0.18);
 }
 
 .form-control:focus {
-  border-color: rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 0 4px rgba(17, 112, 205, 0.1);
+  border-color: #16a34a;
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.1), 0 4px 12px rgba(22, 163, 74, 0.08);
+}
+
+/*=========================================
+        Production Upload Input
+=========================================*/
+.upload-input {
+  width: 100%;
+}
+
+.image-upload {
+  display: none;
+}
+
+.upload-label {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 14px;
+  background: #fff;
+  border: 1px solid rgba(15, 77, 67, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 2px rgba(15, 77, 67, 0.03);
+}
+
+.upload-label:hover {
+  border-color: rgba(15, 77, 67, 0.18);
+}
+
+.upload-label:has(.image-upload:focus) {
+  border-color: #16a34a;
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.1), 0 4px 12px rgba(22, 163, 74, 0.08);
+}
+
+.upload-btn {
+  flex-shrink: 0;
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: #0f684d; /* <-- use your landing page green */
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.upload-label:hover .upload-btn {
+  background: #0d5a42;
+}
+
+.upload-file-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #6b7280;
+  font-size: 14px;
 }
 
 .form-text {
@@ -545,7 +637,6 @@ textarea {
   overflow: hidden;
   animation: zoomIn 0.5s ease-in-out;
 }
-
 @media screen and (max-width: 1000px) {
   .preview-cnt {
     position: relative;
@@ -555,6 +646,7 @@ textarea {
     right: 20px;
   }
 }
+
 @keyframes zoomIn {
   from {
     transform: scale(0.8);
@@ -598,7 +690,6 @@ textarea {
 .preview-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -697,12 +788,10 @@ textarea {
 @media screen and (min-width: 768px) {
   .cols-3 {
     grid-template-columns: repeat(3, 1fr);
-    -moz-column-gap: 2rem;
     column-gap: 2rem;
   }
   .cols-2 {
     grid-template-columns: repeat(2, 1fr);
-    -moz-column-gap: 2rem;
     column-gap: 2rem;
   }
 }
@@ -717,7 +806,6 @@ textarea {
 .print-btn-sc {
   margin: 2rem 0 6rem 0;
 }
-
 .print-btn-sc button {
   position: relative;
   top: 20px;
@@ -727,7 +815,6 @@ textarea {
   border-radius: 0px 30px 30px 30px;
   padding: 17px 40px;
 }
-
 @media screen and (max-width: 1000px) {
   .print-btn-sc button {
     position: relative;
@@ -763,6 +850,6 @@ textarea {
     top: 0;
     overflow: hidden;
   }
-} 
+}
 
 /*# sourceMappingURL=resume.css.map */
