@@ -1007,3 +1007,32 @@ textarea {
     overflow: hidden;
   }
 }
+
+/* Footer */
+.footer {
+  padding: 2.8rem 0;
+  background: linear-gradient(
+  180deg,
+  #112b44 0%,
+  #0f253d 100%
+);
+  color: rgba(255,255,255,.88);
+  overflow: hidden;
+} 
+
+.footer-content p {
+  margin: 0;
+  font-size: 1.9rem;
+  color: rgba(255,255,255,.88);
+font-weight: 400;
+
+  @include hplaptop() {
+    font-size: 1.2rem;
+  }
+}
+
+.footer-year {
+  color: #1ec99b;
+  font-weight: 500;
+}
+
