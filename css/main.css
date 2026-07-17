@@ -440,7 +440,7 @@ button:hover {
   min-height: calc(100vh - 88px);
   padding: 1.5rem 2rem 0;
   isolation: isolate;
-  background: #d4e8e2;
+  background: #d7eae5;
 }
 @media screen and (max-width: 1000px) {
   .header {
@@ -625,7 +625,7 @@ button:hover {
   position: relative;
   overflow: hidden;
   padding: 7rem 0;
-  background: linear-gradient(135deg, #edf9f5 0%, #f8fcfb 48%, #edf8f4 100%), radial-gradient(circle at 12% 18%, rgba(194, 233, 221, 0.6), transparent 34%), radial-gradient(circle at 88% 72%, rgba(216, 240, 231, 0.42), transparent 32%);
+  background: linear-gradient(135deg, #eaf7f2 0%, #f5fbf8 48%, #ebf8f3 100%), radial-gradient(circle at 12% 18%, rgba(191, 229, 216, 0.68), transparent 34%), radial-gradient(circle at 88% 72%, rgba(210, 236, 225, 0.46), transparent 32%);
 }
 @media screen and (max-width: 1000px) {
   .section-one {
@@ -976,7 +976,7 @@ button:hover {
   text-align: center;
   color: var(--clr-dark);
   /* Premium background */
-  background: linear-gradient(135deg, rgba(98, 214, 176, 0.03) 0%, transparent 28%), linear-gradient(315deg, rgba(98, 214, 176, 0.03) 0%, transparent 30%);
+  background: linear-gradient(135deg, #edf8f5 0%, #f4f8fb 52%, #eef8f6 100%), linear-gradient(135deg, rgba(94, 191, 160, 0.05) 0%, transparent 32%), linear-gradient(315deg, rgba(94, 191, 160, 0.05) 0%, transparent 34%);
 }
 
 .section-two::before {
@@ -1149,7 +1149,7 @@ button:hover {
   gap: 9.5rem;
   padding: 8rem 8%;
   isolation: isolate;
-  background: radial-gradient(circle at 15% 55%, rgba(16, 185, 129, 0.04) 0%, rgba(16, 185, 129, 0.03) 22%, transparent 42%), radial-gradient(circle at 88% 42%, rgba(59, 130, 246, 0.025) 0%, transparent 35%), radial-gradient(circle at 55% 10%, rgba(255, 255, 255, 0.95) 0%, rgba(248, 252, 253, 0.98) 55%, #f6fbfc 100%);
+  background: radial-gradient(circle at 15% 55%, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0.035) 22%, transparent 42%), radial-gradient(circle at 88% 42%, rgba(59, 130, 246, 0.03) 0%, transparent 35%), linear-gradient(135deg, #eff8f5 0%, #f7fbfa 55%, #eef8f5 100%);
   position: relative;
   isolation: isolate;
 }

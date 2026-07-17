@@ -462,8 +462,9 @@ button:hover {
 
   isolation: isolate;
 
-  // background: #cde1db;
-  background: #d4e8e2;
+  background: #d7eae5;
+  // background: #d4e8e2;
+  //background-color: red;
 
   @include hplaptop() {
     min-height: auto;
@@ -709,18 +710,40 @@ button:hover {
   overflow: hidden;
   padding: 7rem 0;
 
+  // background: red;
+
+  // background:
+  //   linear-gradient(135deg, #edf9f5 0%, #f8fcfb 48%, #edf8f4 100%),
+  //   radial-gradient(
+  //     circle at 12% 18%,
+  //     rgba(194, 233, 221, 0.6),
+  //     transparent 34%
+  //   ),
+  //   radial-gradient(
+  //     circle at 88% 72%,
+  //     rgba(216, 240, 231, 0.42),
+  //     transparent 32%
+  //   );
+
   background:
-    linear-gradient(135deg, #edf9f5 0%, #f8fcfb 48%, #edf8f4 100%),
-    radial-gradient(
-      circle at 12% 18%,
-      rgba(194, 233, 221, 0.6),
-      transparent 34%
-    ),
-    radial-gradient(
-      circle at 88% 72%,
-      rgba(216, 240, 231, 0.42),
-      transparent 32%
-    );
+linear-gradient(
+135deg,
+#eaf7f2 0%,
+#f5fbf8 48%,
+#ebf8f3 100%
+),
+radial-gradient(
+circle at 12% 18%,
+rgba(191,229,216,.68),
+transparent 34%
+),
+radial-gradient(
+circle at 88% 72%,
+rgba(210,236,225,.46),
+transparent 32%
+);
+
+
 
   @include hplaptop() {
     padding: 6rem 0;
@@ -1169,11 +1192,30 @@ button:hover {
   padding: 8rem 0;
   text-align: center;
   color: var(--clr-dark);
-
+  // background: red;
   /* Premium background */
+  // background:
+  //   linear-gradient(135deg, rgba(98, 214, 176, 0.03) 0%, transparent 28%),
+  //   linear-gradient(315deg, rgba(98, 214, 176, 0.03) 0%, transparent 30%);
   background:
-    linear-gradient(135deg, rgba(98, 214, 176, 0.03) 0%, transparent 28%),
-    linear-gradient(315deg, rgba(98, 214, 176, 0.03) 0%, transparent 30%);
+linear-gradient(
+135deg,
+#edf8f5 0%,
+#f4f8fb 52%,
+#eef8f6 100%
+),
+linear-gradient(
+135deg,
+rgba(94,191,160,.05) 0%,
+transparent 32%
+),
+linear-gradient(
+315deg,
+rgba(94,191,160,.05) 0%,
+transparent 34%
+);
+
+
 }
 
 .section-two::before {
@@ -1410,25 +1452,44 @@ button:hover {
 
   padding: 8rem 8%;
   isolation: isolate;
+  // background: red;
 
+  // background:
+  //   radial-gradient(
+  //     circle at 15% 55%,
+  //     rgba(16, 185, 129, 0.04) 0%,
+  //     rgba(16, 185, 129, 0.03) 22%,
+  //     transparent 42%
+  //   ),
+  //   radial-gradient(
+  //     circle at 88% 42%,
+  //     rgba(59, 130, 246, 0.025) 0%,
+  //     transparent 35%
+  //   ),
+  //   radial-gradient(
+  //     circle at 55% 10%,
+  //     rgba(255, 255, 255, 0.95) 0%,
+  //     rgba(248, 252, 253, 0.98) 55%,
+  //     #f6fbfc 100%
+  //   );
   background:
-    radial-gradient(
-      circle at 15% 55%,
-      rgba(16, 185, 129, 0.04) 0%,
-      rgba(16, 185, 129, 0.03) 22%,
-      transparent 42%
-    ),
-    radial-gradient(
-      circle at 88% 42%,
-      rgba(59, 130, 246, 0.025) 0%,
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 55% 10%,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(248, 252, 253, 0.98) 55%,
-      #f6fbfc 100%
-    );
+radial-gradient(
+circle at 15% 55%,
+rgba(16,185,129,.05) 0%,
+rgba(16,185,129,.035) 22%,
+transparent 42%
+),
+radial-gradient(
+circle at 88% 42%,
+rgba(59,130,246,.03) 0%,
+transparent 35%
+),
+linear-gradient(
+135deg,
+#eff8f5 0%,
+#f7fbfa 55%,
+#eef8f5 100%
+);
   position: relative;
 
   isolation: isolate;
