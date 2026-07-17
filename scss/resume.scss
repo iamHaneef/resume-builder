@@ -538,15 +538,15 @@ textarea {
   font-size: 14px;
   color: var(--clr-dark);
 
-  margin-bottom: .65rem;
+  margin-bottom: 0.65rem;
 }
 
 .form-control {
   width: 100%;
 
-  height: 50px;          // <-- Add this
+  height: 50px; // <-- Add this
 
-  padding: 0 16px;       // <-- Vertical padding no longer needed
+  padding: 0 16px; // <-- Vertical padding no longer needed
 
   display: flex;
   align-items: center;
@@ -557,12 +557,12 @@ textarea {
   background: #ffffff;
   color: #1f2937;
 
-  border: 1px solid rgba(15, 77, 67, 0.10);
+  border: 1px solid rgba(15, 77, 67, 0.1);
   border-radius: 10px;
 
   outline: none;
 
-  transition: all .25s ease;
+  transition: all 0.25s ease;
 
   box-shadow: 0 1px 2px rgba(15, 77, 67, 0.03);
 }
@@ -633,17 +633,20 @@ textarea {
 
   padding: 8px 18px;
 
-  border-radius: 20px;
+  border-radius: 10px; // was 20px
 
-  background: #0f684d; /* <-- use your landing page green */
+  background: #0f684d;
 
   color: #fff;
 
   font-size: 13px;
-
   font-weight: 600;
 
-  transition: 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.upload-label:hover .upload-btn {
+  background: #0d5a42;
 }
 
 .upload-label:hover .upload-btn {
@@ -681,39 +684,95 @@ textarea {
 }
 
 .repeater-add-btn {
-  width: 35px;
-  height: 35px;
-  background-color: #350046;
-  font-size: 1.6rem;
-  color: var(--clr-white);
-  margin: 1rem 0;
+  width: 38px;
+  height: 38px;
+
+  display: flex;
   align-items: center;
-  transition: var(--transition);
+  justify-content: center;
+
+  margin: 10px 0 24px 10px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #0f684d;
+  color: #fff;
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow: 0 2px 6px rgba(15, 104, 77, 0.12);
+
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.18s ease;
 }
 
 .repeater-add-btn:hover {
-  background-color: var(--clr-green);
+  background: #0d5a42;
 
-  transform: rotate(90deg);
+  transform: translateY(-1px);
+
+  box-shadow: 0 5px 12px rgba(15, 104, 77, 0.16);
 }
 
+.repeater-add-btn:active {
+  transform: translateY(0);
+
+  box-shadow: 0 2px 4px rgba(15, 104, 77, 0.1);
+}
 .repeater-remove-btn {
   position: absolute;
+
   top: 10px;
   right: 10px;
-  z-index: 999;
-  width: 35px;
-  height: 35px;
 
-  background-color: teal;
-  color: var(--clr-white);
-  font-size: 1.6rem;
-  transition: var(--transition);
+  z-index: 10;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #0f684d;
+  color: #fff;
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow: 0 2px 6px rgba(15, 104, 77, 0.12);
+
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.18s ease;
 }
 
 .repeater-remove-btn:hover {
-  background-color: #023300;
-  transform: rotate(-90deg);
+  background: #0d5a42;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 5px 12px rgba(15, 104, 77, 0.16);
+}
+
+.repeater-remove-btn:active {
+  transform: translateY(0);
+
+  box-shadow: 0 2px 4px rgba(15, 104, 77, 0.1);
 }
 
 /* preview section */
