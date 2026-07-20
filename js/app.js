@@ -527,5 +527,7 @@ function printCV() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  restoreDraft();
+  setTimeout(() => {
+    restoreDraft();
+  }, 0); 
 });
