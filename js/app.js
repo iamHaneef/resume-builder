@@ -7,6 +7,147 @@ const phoneRegex =
 /* supports following number formats - (123) 456-7890, (123)456-7890, 123-456-7890, 123.456.7890, 1234567890, +31636363634, 075-63546725 */
 const digitRegex = /^\d+$/;
 
+/* ===========================================================
+   Resume Draft Manager
+=========================================================== */
+
+const DRAFT_KEY = "resumeBuilderDraft";
+
+function saveDraft(data) {
+  localStorage.setItem(DRAFT_KEY, JSON.stringify(data));
+}
+
+function loadDraft() {
+  const draft = localStorage.getItem(DRAFT_KEY);
+
+  if (!draft) return null;
+
+  try {
+    return JSON.parse(draft);
+  } catch (error) {
+    console.error("Draft Parse Error:", error);
+    return null;
+  }
+}
+
+function clearDraft() {
+  localStorage.removeItem(DRAFT_KEY);
+}
+
+/* ===========================================================
+   Restore Draft
+=========================================================== */
+
+function restoreDraft() {
+  const draft = loadDraft();
+
+  if (!draft) return;
+
+  /* ===========================
+     Personal Information
+  =========================== */
+
+  firstnameElem.value = draft.firstname || "";
+  middlenameElem.value = draft.middlename || "";
+  lastnameElem.value = draft.lastname || "";
+  designationElem.value = draft.designation || "";
+  addressElem.value = draft.address || "";
+  emailElem.value = draft.email || "";
+  phonenoElem.value = draft.phoneno || "";
+  summaryElem.value = draft.summary || "";
+
+  /* ===========================
+     Achievement (First Row)
+  =========================== */
+
+  if (draft.achievements && draft.achievements.length > 0) {
+    const achievement = draft.achievements[0];
+
+    document.querySelector(".achieve_title").value =
+      achievement.achieve_title || "";
+
+    document.querySelector(".achieve_description").value =
+      achievement.achieve_description || "";
+  }
+
+  /* ===========================
+     Experience (First Row)
+  =========================== */
+
+  if (draft.experiences && draft.experiences.length > 0) {
+    const experience = draft.experiences[0];
+
+    document.querySelector(".exp_title").value = experience.exp_title || "";
+
+    document.querySelector(".exp_organization").value =
+      experience.exp_organization || "";
+
+    document.querySelector(".exp_location").value =
+      experience.exp_location || "";
+
+    document.querySelector(".exp_start_date").value =
+      experience.exp_start_date || "";
+
+    document.querySelector(".exp_end_date").value =
+      experience.exp_end_date || "";
+
+    document.querySelector(".exp_description").value =
+      experience.exp_description || "";
+  }
+
+  /* ===========================
+     Education (First Row)
+  =========================== */
+
+  if (draft.educations && draft.educations.length > 0) {
+    const education = draft.educations[0];
+
+    document.querySelector(".edu_school").value = education.edu_school || "";
+
+    document.querySelector(".edu_degree").value = education.edu_degree || "";
+
+    document.querySelector(".edu_city").value = education.edu_city || "";
+
+    document.querySelector(".edu_start_date").value =
+      education.edu_start_date || "";
+
+    document.querySelector(".edu_graduation_date").value =
+      education.edu_graduation_date || "";
+
+    document.querySelector(".edu_description").value =
+      education.edu_description || "";
+  }
+
+  /* ===========================
+     Project (First Row)
+  =========================== */
+
+  if (draft.projects && draft.projects.length > 0) {
+    const project = draft.projects[0];
+
+    document.querySelector(".proj_title").value = project.proj_title || "";
+
+    document.querySelector(".proj_link").value = project.proj_link || "";
+
+    document.querySelector(".proj_description").value =
+      project.proj_description || "";
+  }
+
+  /* ===========================
+     Skill (First Row)
+  =========================== */
+
+  if (draft.skills && draft.skills.length > 0) {
+    document.querySelector(".skill").value = draft.skills[0].skill || "";
+  }
+
+  /* ===========================
+     Update Preview
+  =========================== */
+
+  displayCV(getUserInputs());
+}
+
 const mainForm = document.getElementById("cv-form");
 const validType = {
   TEXT: "text",
@@ -341,8 +482,13 @@ const displayCV = (userData) => {
 
 // generate CV
 const generateCV = () => {
+  console.log("GenerateCV Running");
   let userData = getUserInputs();
+
+  saveDraft(userData);
+
   displayCV(userData);
+
   console.log(userData);
 };
 
@@ -364,3 +510,7 @@ function previewImage() {
 function printCV() {
   window.print();
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  restoreDraft();
+});

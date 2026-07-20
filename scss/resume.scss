@@ -776,25 +776,79 @@ textarea {
 }
 
 /* preview section */
-.preview-cnt {
-  background-color: rgb(246, 242, 239);
-  position: relative;
-  top: 30px;
-  height: 100vh;
+.preview-workspace {
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
 
-  border-radius: 5px;
+  background: linear-gradient(180deg, #edf6f3 0%, #f7faf8 100%);
+
+  border: 1px solid rgba(8, 76, 65, 0.06);
+
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: auto;
+}
+
+.resume-paper { 
+  padding: 1rem;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+
+  box-shadow:
+    0 16px 40px rgba(15, 23, 42, 0.08),
+    0 3px 10px rgba(15, 23, 42, 0.05);
+
+  border: 1px solid rgba(15, 23, 42, 0.05);
+
+  background: #fff;
+
+  border-radius: 16px;
+
+  transition: box-shadow 0.25s ease;
+}
+
+.resume-paper:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 22px 55px rgba(15,23,42,.10),
+        0 8px 20px rgba(15,23,42,.06);
+
+}
+
+.preview-cnt {
   display: grid;
   grid-template-columns: 32% auto;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  width: 794px;
+  min-height: 1123px;
+
   overflow: hidden;
-  animation: zoomIn 0.5s ease-in-out;
+
+  border-radius: 10px;
+
+  animation: zoomIn 0.45s ease;
 
   @include hplaptop() {
-    position: relative;
-    height: 60vh;
-    grid-template-columns: 45% auto;
-    width: 110%;
-    right: 20px;
+    .preview-workspace {
+      padding: 2rem;
+    }
+
+    .resume-paper {
+      padding: 2rem;
+    }
+
+    .preview-cnt {
+      width: 100%;
+      max-width: 794px;
+      min-height: auto;
+    }
   }
 }
 
@@ -810,14 +864,28 @@ textarea {
 }
 
 .preview-cnt-l {
-  padding: 3rem 3rem 2rem 3rem;
+  padding: 2.4rem 2.4rem 2rem;
+  position: relative;
+
   background: #001f3e;
   color: var(--clr-white);
 }
 
+.preview-cnt-l::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 1px;
+  height: 100%;
+
+  background: rgba(255,255,255,.08);
+}
+
 .preview-cnt-r {
-  padding: 3rem 3rem 3rem 4rem;
-  background: var(--clr-bright);
+  padding: 2.4rem 2.6rem;
+  background: #fbfcfd;
 }
 
 .preview-cnt-l .preview-blk:nth-child(1) {
@@ -825,13 +893,13 @@ textarea {
 }
 
 .preview-image {
-  width: 120px;
-  height: 120px;
+  width: 105px;
+  height: 105px;
   border-radius: 50%;
   overflow: hidden;
   margin-right: auto;
   margin-left: auto;
-  border: 3px solid var(--clr-white);
+  border: 4px solid rgba(255,255,255,.95);
   transition: transform 0.5s ease;
 }
 
@@ -844,11 +912,10 @@ textarea {
   height: 100%;
   object-fit: cover;
 }
-
 .preview-item-name {
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 600;
-  margin: 1.8rem 0;
+  margin: 1.2rem 0 1rem;
   position: relative;
 }
 
@@ -864,24 +931,23 @@ textarea {
 }
 
 .preview-blk {
-  padding: 1rem 0;
-  margin-bottom: 1rem;
+  padding: 0.75rem 0;
+  margin-bottom: 0.75rem;
 }
 
 .preview-blk-title h3 {
+  
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(22, 32, 51, .08);
   padding-bottom: 0.5rem;
 }
-
 .preview-blk-title {
-  margin-bottom: 1rem;
+  margin-bottom: 0.65rem;
 }
-
 .preview-blk-list .preview-item {
   font-size: 1.5rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
   opacity: 0.95;
 }
 
@@ -1011,20 +1077,16 @@ textarea {
 /* Footer */
 .footer {
   padding: 2.8rem 0;
-  background: linear-gradient(
-  180deg,
-  #112b44 0%,
-  #0f253d 100%
-);
-  color: rgba(255,255,255,.88);
+  background: linear-gradient(180deg, #112b44 0%, #0f253d 100%);
+  color: rgba(255, 255, 255, 0.88);
   overflow: hidden;
-} 
+}
 
 .footer-content p {
   margin: 0;
   font-size: 1.9rem;
-  color: rgba(255,255,255,.88);
-font-weight: 400;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 400;
 
   @include hplaptop() {
     font-size: 1.2rem;
@@ -1035,4 +1097,3 @@ font-weight: 400;
   color: #1ec99b;
   font-weight: 500;
 }
-
