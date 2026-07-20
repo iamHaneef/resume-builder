@@ -37,6 +37,35 @@ function clearDraft() {
 /* ===========================================================
    Restore Draft
 =========================================================== */
+function restoreRepeaterItems({ draftItems, repeaterClass, titleSelectors }) {
+  if (!draftItems || draftItems.length === 0) return;
+
+  const addBtn = document.querySelector(
+    `.${repeaterClass} [data-repeater-create]`,
+  );
+
+  console.log("Repeater:", repeaterClass);
+  console.log("Draft Count:", draftItems.length);
+  console.log("Add Button:", addBtn);
+
+  for (let i = 1; i < draftItems.length; i++) {
+    addBtn.click();
+  }
+  console.log(document.querySelectorAll(".achieve_title").length);
+
+  // Fill all inputs
+  titleSelectors.forEach((selector) => {
+    const inputs = document.querySelectorAll(selector);
+
+    draftItems.forEach((item, index) => {
+      const key = selector.replace(".", "");
+
+      if (inputs[index]) {
+        inputs[index].value = item[key] || "";
+      }
+    });
+  });
+}
 
 function restoreDraft() {
   const draft = loadDraft();
@@ -60,86 +89,72 @@ function restoreDraft() {
      Achievement (First Row)
   =========================== */
 
-  if (draft.achievements && draft.achievements.length > 0) {
-    const achievement = draft.achievements[0];
+  /* ===========================
+   Achievement (All Rows)
+=========================== */
 
-    document.querySelector(".achieve_title").value =
-      achievement.achieve_title || "";
-
-    document.querySelector(".achieve_description").value =
-      achievement.achieve_description || "";
-  }
+  restoreRepeaterItems({
+    draftItems: draft.achievements,
+    repeaterClass: "achievement-repeater",
+    titleSelectors: [".achieve_title", ".achieve_description"],
+  });
 
   /* ===========================
      Experience (First Row)
   =========================== */
 
-  if (draft.experiences && draft.experiences.length > 0) {
-    const experience = draft.experiences[0];
-
-    document.querySelector(".exp_title").value = experience.exp_title || "";
-
-    document.querySelector(".exp_organization").value =
-      experience.exp_organization || "";
-
-    document.querySelector(".exp_location").value =
-      experience.exp_location || "";
-
-    document.querySelector(".exp_start_date").value =
-      experience.exp_start_date || "";
-
-    document.querySelector(".exp_end_date").value =
-      experience.exp_end_date || "";
-
-    document.querySelector(".exp_description").value =
-      experience.exp_description || "";
-  }
+  restoreRepeaterItems({
+    draftItems: draft.experiences,
+    repeaterClass: "experience-repeater",
+    titleSelectors: [
+      ".exp_title",
+      ".exp_organization",
+      ".exp_location",
+      ".exp_start_date",
+      ".exp_end_date",
+      ".exp_description",
+    ],
+  });
 
   /* ===========================
-     Education (First Row)
-  =========================== */
+   Education (All Rows)
+=========================== */
 
-  if (draft.educations && draft.educations.length > 0) {
-    const education = draft.educations[0];
-
-    document.querySelector(".edu_school").value = education.edu_school || "";
-
-    document.querySelector(".edu_degree").value = education.edu_degree || "";
-
-    document.querySelector(".edu_city").value = education.edu_city || "";
-
-    document.querySelector(".edu_start_date").value =
-      education.edu_start_date || "";
-
-    document.querySelector(".edu_graduation_date").value =
-      education.edu_graduation_date || "";
-
-    document.querySelector(".edu_description").value =
-      education.edu_description || "";
-  }
-
+  restoreRepeaterItems({
+    draftItems: draft.educations,
+    repeaterClass: "education-repeater",
+    titleSelectors: [
+      ".edu_school",
+      ".edu_degree",
+      ".edu_city",
+      ".edu_start_date",
+      ".edu_graduation_date",
+      ".edu_description",
+    ],
+  });
   /* ===========================
      Project (First Row)
   =========================== */
 
-  if (draft.projects && draft.projects.length > 0) {
-    const project = draft.projects[0];
+  /* ===========================
+   Projects (All Rows)
+=========================== */
 
-    document.querySelector(".proj_title").value = project.proj_title || "";
-
-    document.querySelector(".proj_link").value = project.proj_link || "";
-
-    document.querySelector(".proj_description").value =
-      project.proj_description || "";
-  }
+  restoreRepeaterItems({
+    draftItems: draft.projects,
+    repeaterClass: "project-repeater",
+    titleSelectors: [".proj_title", ".proj_link", ".proj_description"],
+  });
 
   /* ===========================
-     Skill (First Row)
-  =========================== */
+   Skills (All Rows)
+=========================== */
 
-  if (draft.skills && draft.skills.length > 0) {
-    document.querySelector(".skill").value = draft.skills[0].skill || "";
-  }
+  restoreRepeaterItems({
+    draftItems: draft.skills,
+    repeaterClass: "skill-repeater",
+    titleSelectors: [".skill"],
+  });
 
   /* ===========================
      Update Preview
