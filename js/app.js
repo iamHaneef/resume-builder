@@ -34,9 +34,73 @@ function clearDraft() {
   localStorage.removeItem(DRAFT_KEY);
 }
 
+//new resume button actions
+
+const newResumeBtn = document.getElementById("newResumeBtn");
+const newResumeModal = document.getElementById("newResumeModal");
+const cancelNewResume = document.getElementById("cancelNewResume");
+const confirmNewResume = document.getElementById("confirmNewResume");
+
+// Open modal
+newResumeBtn.addEventListener("click", () => {
+  newResumeModal.classList.add("active");
+});
+
+// Cancel
+cancelNewResume.addEventListener("click", () => {
+  newResumeModal.classList.remove("active");
+});
+
+// Temporary confirm action
+confirmNewResume.addEventListener("click", () => {
+  resetResumeBuilder();
+  newResumeModal.classList.remove("active");
+});
+//reset all input datas :
+function resetRepeater(repeaterClass) {
+  const repeater = document.querySelector(`.${repeaterClass}`);
+
+  if (!repeater) return;
+
+  // Remove all rows except the first
+  const deleteButtons = repeater.querySelectorAll("[data-repeater-delete]");
+
+  for (let i = deleteButtons.length - 1; i > 0; i--) {
+    deleteButtons[i].click();
+  }
+
+  // Clear first row
+  const firstItem = repeater.querySelector("[data-repeater-item]");
+
+  if (!firstItem) return;
+
+  firstItem.querySelectorAll("input, textarea, select").forEach((field) => {
+    field.value = "";
+  });
+}
+
+function resetResumeBuilder() {
+  // Clear LocalStorage
+  clearDraft();
+
+  // Reset all normal inputs
+  document.querySelector("#cv-form").reset();
+
+  // Reset every repeater
+  resetRepeater("achievement-repeater");
+  resetRepeater("experience-repeater");
+  resetRepeater("education-repeater");
+  resetRepeater("project-repeater");
+  resetRepeater("skill-repeater");
+
+  // Refresh preview
+  displayCV(getUserInputs());
+}
+
 /* ===========================================================
    Restore Draft
 =========================================================== */
+
 function restoreRepeaterItems({ draftItems, repeaterClass, titleSelectors }) {
   if (!draftItems || draftItems.length === 0) return;
 
@@ -529,5 +593,5 @@ function printCV() {
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     restoreDraft();
-  }, 0); 
+  }, 0);
 });
