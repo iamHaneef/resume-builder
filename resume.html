@@ -234,7 +234,7 @@
                 <h3>Expertise / Experience</h3>
               </div>
 
-             <div class="row-separator repeater experience-repeater">
+              <div class="row-separator repeater experience-repeater">
                 <div class="repeater" data-repeater-list="group-b">
                   <div data-repeater-item>
                     <div class="cv-form-row cv-form-row-experience">
@@ -554,13 +554,66 @@
         </div>
       </div>
     </section>
-    <div
-      class="finish"
-      style="background-color:#F6F2EF; padding: 11px"
+    <section class="resume-preview-section" style="background-color: #f6f2ef; padding: 11px">
+      <section class="preview-header">
+    <div class="container">
+
+        <div class="preview-header__content">
+
+            <div class="preview-header__info">
+
+                <div class="preview-header__icon">
+    <img
+        src="./assets/greeneye.png"
+        alt="Resume Preview"
+        class="preview-header__icon-img"
     >
+</div>
+               
+
+                <div class="preview-header__text">
+                    <h2 class="preview-header__title">
+                        Resume Preview
+                    </h2>
+
+                  <p class="preview-header__subtitle">
+    See how your resume looks.
+</p>
+                </div>
+
+            </div>
+
+            <div class="preview-header__actions">
+
+                <button id="newResumeBtn" class="preview-header__btn preview-header__btn--secondary">
+    <i class="fa-solid fa-file-circle-plus"></i>
+    <span>New Resume</span>
+</button>
+<button
+    type="button"
+    id="printResumeBtn"
+    class="preview-header__btn preview-header__btn--primary"
+    onclick="printCV()"
+>
+    <img
+        src="./assets/printer.png"
+        alt="Print"
+        class="preview-header__btn-icon"
+    >
+
+    <span>Print CV</span>
+</button>
+             
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
       <section id="preview-sc" class="print_area">
         <div class="container">
-          <div class="preview-workspace"> 
+          <div class="preview-workspace">
             <div class="resume-paper">
               <div class="preview-cnt">
                 <div class="preview-cnt-l bg-green text-white">
@@ -612,10 +665,7 @@
                   </div>
                 </div>
 
-                <div
-                  class="preview-cnt-r"
-                  style="background-color:#FCFCFB"
-                >
+                <div class="preview-cnt-r" style="background-color: #fcfcfb">
                   <div class="preview-blk">
                     <div class="preview-blk-title">
                       <h3>Achievements</h3>
@@ -659,18 +709,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="print-btn-sc">
-        <div class="container">
-          <button
-            type="button"
-            class="print-btn btn btn-primary"
-            onclick="printCV()"
-          >
-            Print CV
-          </button>
         </div>
       </section>
 
