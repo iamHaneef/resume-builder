@@ -134,94 +134,87 @@ function restoreRepeaterItems({ draftItems, repeaterClass, titleSelectors }) {
 function restoreDraft() {
   const draft = loadDraft();
 
-  if (!draft) return;
+  if (draft) {
+    /* ===========================
+       Personal Information
+    =========================== */
+
+    firstnameElem.value = draft.firstname || "";
+    middlenameElem.value = draft.middlename || "";
+    lastnameElem.value = draft.lastname || "";
+    designationElem.value = draft.designation || "";
+    addressElem.value = draft.address || "";
+    emailElem.value = draft.email || "";
+    phonenoElem.value = draft.phoneno || "";
+    summaryElem.value = draft.summary || "";
+
+    /* ===========================
+       Achievement
+    =========================== */
+
+    restoreRepeaterItems({
+      draftItems: draft.achievements,
+      repeaterClass: "achievement-repeater",
+      titleSelectors: [".achieve_title", ".achieve_description"],
+    });
+
+    /* ===========================
+       Experience
+    =========================== */
+
+    restoreRepeaterItems({
+      draftItems: draft.experiences,
+      repeaterClass: "experience-repeater",
+      titleSelectors: [
+        ".exp_title",
+        ".exp_organization",
+        ".exp_location",
+        ".exp_start_date",
+        ".exp_end_date",
+        ".exp_description",
+      ],
+    });
+
+    /* ===========================
+       Education
+    =========================== */
+
+    restoreRepeaterItems({
+      draftItems: draft.educations,
+      repeaterClass: "education-repeater",
+      titleSelectors: [
+        ".edu_school",
+        ".edu_degree",
+        ".edu_city",
+        ".edu_start_date",
+        ".edu_graduation_date",
+        ".edu_description",
+      ],
+    });
+
+    /* ===========================
+       Projects
+    =========================== */
+
+    restoreRepeaterItems({
+      draftItems: draft.projects,
+      repeaterClass: "project-repeater",
+      titleSelectors: [".proj_title", ".proj_link", ".proj_description"],
+    });
+
+    /* ===========================
+       Skills
+    =========================== */
+
+    restoreRepeaterItems({
+      draftItems: draft.skills,
+      repeaterClass: "skill-repeater",
+      titleSelectors: [".skill"],
+    });
+  }
 
   /* ===========================
-     Personal Information
-  =========================== */
-
-  firstnameElem.value = draft.firstname || "";
-  middlenameElem.value = draft.middlename || "";
-  lastnameElem.value = draft.lastname || "";
-  designationElem.value = draft.designation || "";
-  addressElem.value = draft.address || "";
-  emailElem.value = draft.email || "";
-  phonenoElem.value = draft.phoneno || "";
-  summaryElem.value = draft.summary || "";
-
-  /* ===========================
-     Achievement (First Row)
-  =========================== */
-
-  /* ===========================
-   Achievement (All Rows)
-=========================== */
-
-  restoreRepeaterItems({
-    draftItems: draft.achievements,
-    repeaterClass: "achievement-repeater",
-    titleSelectors: [".achieve_title", ".achieve_description"],
-  });
-
-  /* ===========================
-     Experience (First Row)
-  =========================== */
-
-  restoreRepeaterItems({
-    draftItems: draft.experiences,
-    repeaterClass: "experience-repeater",
-    titleSelectors: [
-      ".exp_title",
-      ".exp_organization",
-      ".exp_location",
-      ".exp_start_date",
-      ".exp_end_date",
-      ".exp_description",
-    ],
-  });
-
-  /* ===========================
-   Education (All Rows)
-=========================== */
-
-  restoreRepeaterItems({
-    draftItems: draft.educations,
-    repeaterClass: "education-repeater",
-    titleSelectors: [
-      ".edu_school",
-      ".edu_degree",
-      ".edu_city",
-      ".edu_start_date",
-      ".edu_graduation_date",
-      ".edu_description",
-    ],
-  });
-  /* ===========================
-     Project (First Row)
-  =========================== */
-
-  /* ===========================
-   Projects (All Rows)
-=========================== */
-
-  restoreRepeaterItems({
-    draftItems: draft.projects,
-    repeaterClass: "project-repeater",
-    titleSelectors: [".proj_title", ".proj_link", ".proj_description"],
-  });
-
-  /* ===========================
-   Skills (All Rows)
-=========================== */
-
-  restoreRepeaterItems({
-    draftItems: draft.skills,
-    repeaterClass: "skill-repeater",
-    titleSelectors: [".skill"],
-  });
-
-  /* ===========================
-     Update Preview
+     Always Update Preview
   =========================== */
 
   displayCV(getUserInputs());
@@ -542,28 +535,100 @@ function previewImage() {
   reader.readAsDataURL(file);
 }
 // show the list data
+
+function hasMeaningfulContent(items, fields) {
+  if (!Array.isArray(items) || items.length === 0) {
+    return false;
+  }
+
+  return items.some((item) =>
+    fields.some((field) => {
+      const value = item[field];
+      return typeof value === "string" && value.trim() !== "";
+    }),
+  );
+}
 function renderAchievements(achievements) {
   achievementsDsp.innerHTML = "";
 
+  const hasData = hasMeaningfulContent(achievements, [
+    "achieve_title",
+    "achieve_description",
+  ]);
+
+  if (!hasData) {
+    achievementsDsp.innerHTML = `
+      <div class="preview-item achievement-item placeholder-item">
+
+        <span class="achievement-title">
+          Award / Achievement Name
+        </span>
+
+        <p class="achievement-description">
+          Brief description of your award, certification, or accomplishment.
+        </p>
+
+      </div>
+    `;
+
+    return;
+  }
+
   achievements.forEach((item) => {
+    const title = item.achieve_title.trim();
+    const description = item.achieve_description.trim();
+
+    // Skip completely empty rows
+    if (!title && !description) return;
+
     const achievement = document.createElement("div");
+
     achievement.className = "preview-item achievement-item";
 
     achievement.innerHTML = `
       <span class="achievement-title">
-        ${item.achieve_title}
+        ${title}
       </span>
 
       <p class="achievement-description">
-        ${item.achieve_description}
+        ${description}
       </p>
     `;
 
     achievementsDsp.appendChild(achievement);
   });
 }
+
 function renderSkills(skills) {
   skillsDsp.innerHTML = "";
+
+  const hasData = hasMeaningfulContent(skills, ["skill"]);
+
+  if (!hasData) {
+    const placeholders = [
+      "Frontend Development",
+      "Backend Development",
+      "Programming Languages",
+      "Frameworks & Libraries",
+      "Tools & Technologies",
+    ];
+
+    placeholders.forEach((text) => {
+      const skill = document.createElement("div");
+
+      skill.className = "preview-item placeholder-item";
+
+      skill.innerHTML = `
+        <span class="preview-item-val">
+          ${text}
+        </span>
+      `;
+
+      skillsDsp.appendChild(skill);
+    });
+
+    return;
+  }
 
   skills.forEach((item) => {
     const skill = document.createElement("div");
@@ -579,6 +644,52 @@ function renderSkills(skills) {
 
 function renderProjects(projects) {
   projectsDsp.innerHTML = "";
+
+  const hasData = hasMeaningfulContent(projects, [
+    "proj_title",
+    "proj_link",
+    "proj_description",
+  ]);
+
+  if (!hasData) {
+    projectsDsp.innerHTML = `
+      <div class="preview-item project-item placeholder-item">
+
+        <div class="project-title">
+          Resume Builder Project
+        </div>
+
+        <div class="project-link">
+          https://project-link.com
+        </div>
+
+        <p class="project-description">
+          Build a professional application showcasing your technical skills,
+          technologies used, and overall project impact.
+        </p>
+
+      </div>
+
+      <div class="preview-item project-item placeholder-item">
+
+        <div class="project-title">
+          Portfolio Website
+        </div>
+
+        <div class="project-link">
+          https://portfolio-link.com
+        </div>
+
+        <p class="project-description">
+          Present your work, projects, achievements, and technical expertise
+          through a clean and responsive portfolio website.
+        </p>
+
+      </div>
+    `;
+
+    return;
+  }
 
   projects.forEach((item) => {
     const project = document.createElement("div");
@@ -623,6 +734,49 @@ function formatResumeDate(dateString, isPresent = false) {
 function renderEducations(educations) {
   educationsDsp.innerHTML = "";
 
+  const hasData = hasMeaningfulContent(educations, [
+    "edu_school",
+    "edu_degree",
+    "edu_city",
+    "edu_start_date",
+    "edu_graduation_date",
+    "edu_description",
+  ]);
+
+  if (!hasData) {
+    educationsDsp.innerHTML = `
+      <div class="preview-item education-item placeholder-item">
+
+        <div class="education-college">
+          College / University Name
+        </div>
+
+        <div class="education-degree">
+          Bachelor's Degree – Specialization
+        </div>
+
+        <div class="education-meta">
+
+          <span class="education-location">
+            City, State
+          </span>
+
+          <span class="education-date">
+            Graduation Year
+          </span>
+
+        </div>
+
+        <p class="education-description">
+          Briefly describe your education, academic achievements, or relevant coursework.
+        </p>
+
+      </div>
+    `;
+
+    return;
+  }
+
   educations.forEach((item) => {
     const education = document.createElement("div");
     education.className = "preview-item education-item";
@@ -661,6 +815,47 @@ ${formatResumeDate(item.edu_graduation_date)}
 function renderExperiences(experiences) {
   experiencesDsp.innerHTML = "";
 
+  const hasData = hasMeaningfulContent(experiences, [
+    "exp_title",
+    "exp_organization",
+    "exp_location",
+    "exp_start_date",
+    "exp_end_date",
+    "exp_description",
+  ]);
+
+  if (!hasData) {
+    experiencesDsp.innerHTML = `
+      <div class="preview-item experience-item placeholder-item">
+
+        <div class="experience-role">
+          Job Title
+        </div>
+
+        <div class="experience-company">
+          Company Name
+        </div>
+
+        <div class="experience-meta">
+          <span class="experience-location">
+            City, State
+          </span>
+
+          <span class="experience-date">
+            Employment Period
+          </span>
+        </div>
+
+        <p class="experience-description">
+          Key responsibilities, achievements, and impact in this role.
+        </p>
+
+      </div>
+    `;
+
+    return;
+  }
+
   experiences.forEach((item) => {
     const experience = document.createElement("div");
     experience.className = "preview-item experience-item";
@@ -696,23 +891,42 @@ function renderExperiences(experiences) {
     experiencesDsp.appendChild(experience);
   });
 }
+function setPlaceholder(element, value, placeholder) {
+  const finalValue = value.trim();
 
+  if (finalValue) {
+    element.textContent = finalValue;
+    element.classList.remove("placeholder");
+  } else {
+    element.textContent = placeholder;
+    element.classList.add("placeholder");
+  }
+}
 const displayCV = (userData) => {
-  nameDsp.innerHTML =
-    userData.firstname + " " + userData.middlename + " " + userData.lastname;
-  phonenoDsp.innerHTML = userData.phoneno;
-  emailDsp.innerHTML = userData.email;
-  addressDsp.innerHTML = userData.address;
-  designationDsp.innerHTML = userData.designation;
-  summaryDsp.innerHTML = userData.summary;
+  const fullName = [userData.firstname, userData.middlename, userData.lastname]
+    .filter((name) => name.trim())
+    .join(" ");
+
+  setPlaceholder(nameDsp, fullName, "Your Full Name");
+
+  setPlaceholder(designationDsp, userData.designation, "Professional Title");
+
+  setPlaceholder(phonenoDsp, userData.phoneno, "Phone Number");
+
+  setPlaceholder(emailDsp, userData.email, "Email Address");
+
+  setPlaceholder(addressDsp, userData.address, "Location");
+
+  setPlaceholder(
+    summaryDsp,
+    userData.summary,
+    "Add a concise professional summary...",
+  );
+
   renderProjects(userData.projects);
-
   renderAchievements(userData.achievements);
-
   renderSkills(userData.skills);
-
   renderEducations(userData.educations);
-
   renderExperiences(userData.experiences);
 };
 

@@ -699,11 +699,17 @@ textarea {
   box-shadow: 0 2px 4px rgba(15, 104, 77, 0.1);
 }
 
+.resume-preview-section {
+  padding: 12px;
+  padding-bottom: 4rem;
+  background: linear-gradient(180deg, #f8f7f5 0%, #f4f8f6 35%, #eef7f4 100%);
+}
+
 /* ==========================================================
    Resume Preview Header
 ========================================================== */
 .preview-header {
-  margin-bottom: 1rem;
+  margin-bottom: 1.75rem;
 }
 .preview-header .preview-header__content {
   display: flex;
@@ -712,7 +718,7 @@ textarea {
   background: transparent;
   border: none;
   box-shadow: none;
-  padding: 1rem 0;
+  padding: 1.15rem 0 1.4rem;
 }
 .preview-header {
   /* ========================================
@@ -727,13 +733,14 @@ textarea {
 .preview-header .preview-header__icon {
   width: 52px;
   height: 52px;
+  margin-bottom: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.9), 0 4px 14px rgba(52, 168, 83, 0.16), 0 10px 24px rgba(15, 23, 42, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 6px 18px rgba(16, 24, 40, 0.05);
 }
 .preview-header .preview-header__icon-img {
   width: 27px;
@@ -747,14 +754,14 @@ textarea {
 }
 .preview-header .preview-header__title {
   margin: 0;
-  font-size: 1.7rem;
+  font-size: 1.75rem;
   font-weight: 600;
   line-height: 1.2;
   color: #1f2937;
 }
 .preview-header .preview-header__subtitle {
   margin-top: 0.35rem;
-  font-family: 500;
+  font-weight: 400;
   font-size: 1.2rem;
   line-height: 1.5;
   color: #64748b;
@@ -1127,6 +1134,82 @@ textarea {
   border: none;
 }
 
+/* ==========================================
+   GUIDED TEMPLATE (STATE A)
+========================================== */
+.placeholder {
+  color: rgba(255, 255, 255, 0.68);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+/* Shared placeholder card */
+.placeholder-item {
+  transition: opacity 0.2s ease;
+}
+
+/* Primary title */
+.placeholder-item .achievement-title,
+.placeholder-item .education-college,
+.placeholder-item .experience-role,
+.placeholder-item .project-title {
+  opacity: 0.72;
+  font-weight: 600;
+}
+
+/* Secondary title */
+.placeholder-item .education-degree,
+.placeholder-item .experience-company,
+.placeholder-item .project-link {
+  opacity: 0.62;
+  font-weight: 500;
+}
+
+/* Meta */
+.placeholder-item .education-location,
+.placeholder-item .education-date,
+.placeholder-item .experience-location,
+.placeholder-item .experience-date {
+  opacity: 0.55;
+}
+
+/* Description */
+.placeholder-item .achievement-description,
+.placeholder-item .education-description,
+.placeholder-item .experience-description,
+.placeholder-item .project-description {
+  opacity: 0.48;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+/* Sidebar placeholders */
+/* Sidebar Skill Placeholder */
+#skills_dsp .placeholder-item .preview-item-val {
+  color: rgba(255, 255, 255, 0.62);
+  font-weight: 400;
+}
+
+.preview-item-val.placeholder {
+  opacity: 0.68;
+}
+
+#fullname_dsp.placeholder {
+  font-style: italic;
+  font-weight: 500;
+}
+
+#designation_dsp.placeholder {
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+#summary_dsp.placeholder {
+  line-height: 1.5;
+}
+
 .preview-workspace {
   padding: 1rem 1.5rem;
   margin-top: 0rem;
@@ -1280,6 +1363,17 @@ textarea {
   margin-top: 0.5rem;
   line-height: 1.6;
   opacity: 0.9;
+}
+
+#designation_dsp.placeholder {
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+#fullname_dsp.placeholder {
+  font-style: normal;
+  font-weight: 500;
+  opacity: 0.75;
 }
 
 #designation_dsp {
