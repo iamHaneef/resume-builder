@@ -342,6 +342,11 @@ button:hover {
   grid-row: 1;
   justify-self: start;
 }
+@media screen and (max-width: 1000px) {
+  .navbar .brand-and-toggler .spinner {
+    display: none;
+  }
+}
 
 .spinner::after,
 .spinner::before {
