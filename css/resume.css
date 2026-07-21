@@ -1,4 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/*======================================
+  RESUME TYPOGRAPHY SYSTEM
+======================================*/
+/* ==============================
+   Resume Design Tokens
+============================== */
+:root {
+  --resume-heading: #11284b;
+  --resume-text: #374151;
+  --resume-muted: #6b7280;
+  --resume-title-size: 1.1rem;
+  --resume-subtitle-size: 0.92rem;
+  --resume-meta-size: 0.74rem;
+  --resume-body-size: 0.9rem;
+  --resume-title-weight: 700;
+  --resume-subtitle-weight: 500;
+  --resume-meta-weight: 500;
+  --resume-body-weight: 400;
+  --resume-space-xs: 0.25rem;
+  --resume-space-sm: 0.45rem;
+  --resume-space-md: 0.8rem;
+  --resume-space-lg: 1.4rem;
+}
+
+:root {
+  /* Font Family */
+  --resume-font: "Inter", "Segoe UI", sans-serif;
+  /* Font Sizes */
+  --fs-name: 1.625rem; /* 26px */
+  --fs-title: 0.75rem; /* 12px */
+  --fs-section: 0.875rem; /* 14px */
+  --fs-heading: 0.75rem; /* 12px */
+  --fs-subheading: 0.6875rem; /* 11px */
+  --fs-body: 0.625rem; /* 10px */
+  --fs-meta: 0.5625rem; /* 9px */
+  /* Font Weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+}
+
 :root {
   --clr-blue: #1a91f0;
   --clr-blue-mid: #1170cd;
@@ -683,8 +725,8 @@ textarea {
   gap: 1rem;
 }
 .preview-header .preview-header__icon {
-  width: 54px;
-  height: 54px;
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -694,11 +736,10 @@ textarea {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.9), 0 4px 14px rgba(52, 168, 83, 0.16), 0 10px 24px rgba(15, 23, 42, 0.05);
 }
 .preview-header .preview-header__icon-img {
-  width: 28px;
-  height: 28px;
+  width: 27px;
+  height: 27px;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 0 4px rgba(52, 168, 83, 0.35)) drop-shadow(0 0 10px rgba(52, 168, 83, 0.22)) drop-shadow(0 0 18px rgba(52, 168, 83, 0.12));
 }
 .preview-header .preview-header__text {
   display: flex;
@@ -729,6 +770,8 @@ textarea {
   gap: 0.9rem;
 }
 .preview-header .preview-header__btn {
+  font-size: 14px;
+  font-weight: 500;
   height: 42px;
   padding: 0 1.25rem;
   display: inline-flex;
@@ -967,7 +1010,123 @@ textarea {
     opacity: 1;
   }
 }
+/* ==========================================
+   Project Component
+========================================== */
+.project-item {
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.4rem;
+  border-bottom: 1px solid #edf1f6;
+}
+.project-item:last-child {
+  margin-bottom: 0;
+}
+
+.project-link {
+  width: fit-content;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #2563eb;
+  text-decoration: none;
+  word-break: break-word;
+  transition: color 0.2s ease;
+}
+.project-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* =====================================
+   Achievement Component
+===================================== */
+.achievement-item {
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.4rem;
+  border-bottom: 1px solid #edf1f6;
+}
+.achievement-item:last-child {
+  margin-bottom: 0;
+}
+
 /* preview section */
+.achievement-description,
+.education-description,
+.experience-description,
+.project-description {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #4b5563;
+}
+
+.achievement-title,
+.education-college,
+.experience-role,
+.project-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--resume-heading);
+}
+
+.education-item,
+.experience-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--resume-space-sm);
+  margin-bottom: 1.5rem;
+}
+.education-item:last-child,
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+.education-meta,
+.experience-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.15rem;
+}
+
+.education-degree,
+.experience-company {
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: var(--resume-text);
+  line-height: 1.4;
+}
+
+.education-location,
+.experience-location {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--resume-muted);
+  font-weight: 500;
+}
+
+.education-date,
+.experience-date {
+  font-size: 0.92rem;
+  font-weight: var(--resume-meta-weight);
+  color: var(--resume-muted);
+  white-space: nowrap;
+}
+
+.skills-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.skill-item {
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.skill-item:last-child {
+  border: none;
+}
+
 .preview-workspace {
   padding: 1rem 1.5rem;
   margin-top: 0rem;
@@ -981,6 +1140,8 @@ textarea {
 }
 
 .resume-paper {
+  width: fit-content;
+  min-height: 297mm;
   padding: 0.75rem;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08), 0 3px 10px rgba(15, 23, 42, 0.05);
@@ -997,11 +1158,12 @@ textarea {
 
 .preview-cnt {
   display: grid;
-  grid-template-columns: 32% auto;
+  grid-template-columns: 32% 68%;
   width: 794px;
   min-height: 1123px;
   overflow: hidden;
   border-radius: 10px;
+  background: #fff;
   animation: zoomIn 0.45s ease;
 }
 @media screen and (max-width: 1000px) {
@@ -1029,10 +1191,19 @@ textarea {
   }
 }
 .preview-cnt-l {
-  padding: 2.4rem 2.4rem 2rem;
+  padding: 2.5rem 2.25rem;
   position: relative;
   background: #001f3e;
   color: var(--clr-white);
+}
+
+.preview-cnt-l .preview-blk:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+  margin-bottom: 2.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .preview-cnt-l::after {
@@ -1046,7 +1217,7 @@ textarea {
 }
 
 .preview-cnt-r {
-  padding: 2.4rem 2.6rem;
+  padding: 2.5rem 2.25rem;
   background: #fbfcfd;
 }
 
@@ -1058,11 +1229,28 @@ textarea {
   width: 105px;
   height: 105px;
   border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.95);
+  margin: 0 auto 1.25rem;
   overflow: hidden;
-  margin-right: auto;
-  margin-left: auto;
-  border: 4px solid rgba(255, 255, 255, 0.95);
-  transition: transform 0.5s ease;
+}
+
+.preview-image img {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.preview-image img.has-image {
+  display: block;
+}
+
+.preview-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .preview-image:hover {
@@ -1076,10 +1264,32 @@ textarea {
 }
 
 .preview-item-name {
-  font-size: 2rem;
+  margin-top: 1.4rem;
+  margin-bottom: 0.45rem;
+}
+.preview-item-name .preview-item-val {
+  font-size: var(--resume-fs-body);
+  font-weight: 400;
+  opacity: 0.94;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.sidebar-summary {
+  margin-top: 0.5rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+#designation_dsp {
+  display: block;
+  margin-top: 0.65rem;
+  font-size: var(--resume-fs-meta);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.82;
   font-weight: 600;
-  margin: 1.2rem 0 1rem;
-  position: relative;
 }
 
 .preview-item-name::after {
@@ -1094,25 +1304,47 @@ textarea {
 }
 
 .preview-blk {
-  padding: 0.75rem 0;
-  margin-bottom: 0.75rem;
+  margin-bottom: 2.3rem;
+}
+.preview-blk:last-child {
+  margin-bottom: 0;
 }
 
-.preview-blk-title h3 {
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border-bottom: 1px solid rgba(22, 32, 51, 0.08);
-  padding-bottom: 0.5rem;
+.preview-blk:last-child {
+  margin-bottom: 0;
 }
 
 .preview-blk-title {
-  margin-bottom: 0.65rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.45rem;
+}
+
+.preview-blk-title h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.preview-cnt-l .preview-blk-title {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+.preview-cnt-l .preview-blk-title h3 {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.preview-cnt-r .preview-blk-title {
+  border-bottom: 1px solid #e8edf3;
+}
+.preview-cnt-r .preview-blk-title h3 {
+  color: #0f2746;
 }
 
 .preview-blk-list .preview-item {
-  font-size: 1.5rem;
-  margin-bottom: 0.1rem;
-  opacity: 0.95;
+  margin-bottom: 0.65rem;
+  font-size: 12px;
+  line-height: 1.45;
+  word-break: break-word;
 }
 
 .preview-cnt-r .preview-blk-title {
@@ -1120,22 +1352,32 @@ textarea {
 }
 
 .preview-cnt-r .preview-blk-list .preview-item {
-  margin-top: 1.8rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.preview-cnt-r .preview-blk-list .preview-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border: none;
 }
 
 .achievements-items.preview-blk-list .preview-item span:first-child,
 .educations-items.preview-blk-list .preview-item span:first-child,
 .experiences-items.preview-blk-list .preview-item span:first-child {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
   display: block;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  background-color: rgba(0, 0, 0, 0.03);
 }
 
 .educations-items.preview-blk-list .preview-item span:nth-child(2),
 .experiences-items.preview-blk-list .preview-item span:nth-child(2) {
+  margin-top: 0.25rem;
+  margin-bottom: 0.35rem;
   font-weight: 600;
-  margin-right: 1rem;
 }
 
 .educations-items.preview-blk-list .preview-item span:nth-child(3),
@@ -1193,9 +1435,11 @@ textarea {
   top: 20px;
   background-color: var(--clr-green);
   color: white;
-  font-size: 15px;
-  border-radius: 0px 30px 30px 30px;
-  padding: 17px 40px;
+  font-size: 9px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+  opacity: 0.92;
 }
 @media screen and (max-width: 1000px) {
   .print-btn-sc button {

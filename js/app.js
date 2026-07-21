@@ -526,23 +526,176 @@ function removeErrMsg(formElem) {
   formElem.nextElementSibling.innerHTML = "";
 }
 
+function previewImage() {
+  console.log("previewImage called");
+  const file = imageElem.files[0];
+
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    imageDsp.src = e.target.result;
+    imageDsp.classList.add("has-image");
+  };
+
+  reader.readAsDataURL(file);
+}
 // show the list data
-const showListData = (listData, listContainer) => {
-  listContainer.innerHTML = "";
-  listData.forEach((listItem) => {
-    let itemElem = document.createElement("div");
-    itemElem.classList.add("preview-item");
+function renderAchievements(achievements) {
+  achievementsDsp.innerHTML = "";
 
-    for (const key in listItem) {
-      let subItemElem = document.createElement("span");
-      subItemElem.classList.add("preview-item-val");
-      subItemElem.innerHTML = `${listItem[key]}`;
-      itemElem.appendChild(subItemElem);
-    }
+  achievements.forEach((item) => {
+    const achievement = document.createElement("div");
+    achievement.className = "preview-item achievement-item";
 
-    listContainer.appendChild(itemElem);
+    achievement.innerHTML = `
+      <span class="achievement-title">
+        ${item.achieve_title}
+      </span>
+
+      <p class="achievement-description">
+        ${item.achieve_description}
+      </p>
+    `;
+
+    achievementsDsp.appendChild(achievement);
   });
-};
+}
+function renderSkills(skills) {
+  skillsDsp.innerHTML = "";
+
+  skills.forEach((item) => {
+    const skill = document.createElement("div");
+    skill.className = "preview-item skill-item";
+
+    skill.innerHTML = `
+      <span class="skill-name">${item.skill}</span>
+    `;
+
+    skillsDsp.appendChild(skill);
+  });
+}
+
+function renderProjects(projects) {
+  projectsDsp.innerHTML = "";
+
+  projects.forEach((item) => {
+    const project = document.createElement("div");
+    project.className = "preview-item project-item";
+
+    project.innerHTML = `
+      <span class="project-title">
+        ${item.proj_title}
+      </span>
+
+      <a
+        href="${item.proj_link}"
+        target="_blank"
+        class="project-link"
+      >
+        ${item.proj_link}
+      </a>
+
+      <p class="project-description">
+        ${item.proj_description}
+      </p>
+    `;
+
+    projectsDsp.appendChild(project);
+  });
+}
+
+function formatResumeDate(dateString, isPresent = false) {
+  if (isPresent) return "Present";
+  if (!dateString) return "";
+
+  const date = new Date(dateString);
+
+  if (isNaN(date)) return dateString;
+
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+  });
+}
+
+function renderEducations(educations) {
+  educationsDsp.innerHTML = "";
+
+  educations.forEach((item) => {
+    const education = document.createElement("div");
+    education.className = "preview-item education-item";
+
+    education.innerHTML = `
+    <span class="education-college">
+        ${item.edu_school}
+    </span>
+
+    <span class="education-degree">
+        ${item.edu_degree}
+    </span>
+
+    <div class="education-meta">
+
+        <span class="education-location">
+            ${item.edu_city}
+        </span>
+
+        <span class="education-date">
+            ${formatResumeDate(item.edu_start_date)}
+–
+${formatResumeDate(item.edu_graduation_date)}
+        </span>
+
+    </div>
+
+    <p class="education-description">
+    ${item.edu_description}
+</p>
+`;
+
+    educationsDsp.appendChild(education);
+  });
+}
+function renderExperiences(experiences) {
+  experiencesDsp.innerHTML = "";
+
+  experiences.forEach((item) => {
+    const experience = document.createElement("div");
+    experience.className = "preview-item experience-item";
+
+    experience.innerHTML = `
+      <span class="experience-role">
+        ${item.exp_title}
+      </span>
+
+      <span class="experience-company">
+        ${item.exp_organization}
+      </span>
+
+      <div class="experience-meta">
+
+        <span class="experience-location">
+          ${item.exp_location}
+        </span>
+
+        <span class="experience-date">
+          ${formatResumeDate(item.exp_start_date)}
+          –
+          ${formatResumeDate(item.exp_end_date)}
+        </span>
+
+      </div>
+
+      <p class="experience-description">
+        ${item.exp_description}
+      </p>
+    `;
+
+    experiencesDsp.appendChild(experience);
+  });
+}
 
 const displayCV = (userData) => {
   nameDsp.innerHTML =
@@ -552,11 +705,15 @@ const displayCV = (userData) => {
   addressDsp.innerHTML = userData.address;
   designationDsp.innerHTML = userData.designation;
   summaryDsp.innerHTML = userData.summary;
-  showListData(userData.projects, projectsDsp);
-  showListData(userData.achievements, achievementsDsp);
-  showListData(userData.skills, skillsDsp);
-  showListData(userData.educations, educationsDsp);
-  showListData(userData.experiences, experiencesDsp);
+  renderProjects(userData.projects);
+
+  renderAchievements(userData.achievements);
+
+  renderSkills(userData.skills);
+
+  renderEducations(userData.educations);
+
+  renderExperiences(userData.experiences);
 };
 
 // generate CV
@@ -572,17 +729,25 @@ const generateCV = () => {
 };
 
 function previewImage() {
-  let oFReader = new FileReader();
-  oFReader.readAsDataURL(imageElem.files[0]);
+  const file = imageElem.files[0];
 
-  oFReader.onload = function (ofEvent) {
-    imageDsp.src = ofEvent.target.result;
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    imageDsp.src = e.target.result;
+
+    imageDsp.classList.add("has-image");
   };
 
-  // update filename
-  document.querySelector(".upload-name").textContent = imageElem.files[0].name;
+  reader.readAsDataURL(file);
 
-  document.querySelector(".upload-btn").textContent = "Change Image";
+  const fileName = document.querySelector(".upload-file-name");
+
+  if (fileName) {
+    fileName.textContent = file.name;
+  }
 }
 
 // print CV
