@@ -708,6 +708,32 @@ textarea {
 /* ==========================================================
    Resume Preview Header
 ========================================================== */
+.preview-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  color: #0f6d57;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.preview-back-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.preview-back-btn:hover .preview-back-icon {
+  transform: translateX(-3px);
+}
+
+.preview-back-btn:hover {
+  color: #0b8b68;
+}
+
 .preview-header {
   margin-bottom: 1.75rem;
 }
