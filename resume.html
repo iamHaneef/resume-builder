@@ -16,15 +16,15 @@
         <div class="navbar-content">
           <div class="brand-and-toggler">
             <div class="spinner"></div>
-            <h6 class="text-uppercase">build a resume</h6>
-            <a href="index.html" class="navbar-brand">
-              <img
+            <h6 class="text-uppercase">Resume Builder</h6>
+            <!-- <a href="index.html" class="navbar-brand">
+                 <img
                 src="https://cdn4.iconfinder.com/data/icons/staff-management-vol-1/72/34-512.png"
                 alt=""
                 class="navbar-brand-icon"
-              />
-              <span class="navbar-brand-text">See We Crafter</span>
-            </a>
+              /> 
+              <span class="navbar-brand-text">Resume Mine</span>
+            </a> -->
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
           <form action="" class="cv-form" id="cv-form">
             <div class="cv-form-blk">
               <div class="cv-form-row-title">
-                <h3>Resume Holder Personal Details</h3>
+                <h3>Personal Details</h3>
               </div>
               <div class="cv-form-row cv-form-row-about">
                 <div class="cols-3">
@@ -54,8 +54,7 @@
                   </div>
                   <div class="form-elem">
                     <label for="" class="form-label"
-                      >Middle Name
-                      <span class="opt-text">(* optional)</span></label
+                      >Middle Name (Optional)</label
                     >
                     <input
                       name="middlename"
@@ -83,7 +82,7 @@
 
                 <div class="cols-3">
                   <div class="form-elem">
-                    <label class="form-label">Your Profile Image</label>
+                    <label class="form-label">Profile Photo</label>
 
                     <div class="upload-input">
                       <input
@@ -112,7 +111,7 @@
                       class="form-control designation"
                       id=""
                       onkeyup="generateCV()"
-                      placeholder="e.g. Sr.Engineer"
+                      placeholder="e.g. Software Engineer"
                     />
                     <span class="form-text"></span>
                   </div>
@@ -124,7 +123,7 @@
                       class="form-control address"
                       id=""
                       onkeyup="generateCV()"
-                      placeholder="e.g. NOrth-Street 23"
+                      placeholder="e.g. 123 North Street"
                     />
                     <span class="form-text"></span>
                   </div>
@@ -132,26 +131,26 @@
 
                 <div class="cols-3">
                   <div class="form-elem">
-                    <label for="" class="form-label">Email ID</label>
+                    <label for="" class="form-label">Email Address</label>
                     <input
                       name="email"
                       type="text"
                       class="form-control email"
                       id=""
                       onkeyup="generateCV()"
-                      placeholder="e.g. mahiicric@gmail.com"
+                      placeholder="e.g. alex.smith@email.com"
                     />
                     <span class="form-text"></span>
                   </div>
                   <div class="form-elem">
-                    <label for="" class="form-label">Phone No:</label>
+                    <label for="" class="form-label">Phone Number</label>
                     <input
                       name="phoneno"
                       type="text"
                       class="form-control phoneno"
                       id=""
                       onkeyup="generateCV()"
-                      placeholder="e.g. 733-9445-186"
+                      placeholder="e.g. +91 98765 43210"
                     />
                     <span class="form-text"></span>
                   </div>
@@ -163,7 +162,7 @@
                       class="form-control summary"
                       id=""
                       onkeyup="generateCV()"
-                      placeholder="e.g. About Holder"
+                      placeholder="Brief professional summary"
                     />
                     <span class="form-text"></span>
                   </div>
@@ -173,7 +172,7 @@
 
             <div class="cv-form-blk">
               <div class="cv-form-row-title">
-                <h3>Successes</h3>
+                <h3>ACHIEVEMENTS</h3>
               </div>
 
               <div class="row-separator repeater achievement-repeater">
@@ -182,20 +181,20 @@
                     <div class="cv-form-row cv-form-row-achievement">
                       <div class="cols-2">
                         <div class="form-elem">
-                          <label for="" class="form-label">Label about</label>
+                          <label for="" class="form-label">Achievement Title</label>
                           <input
                             name="achieve_title"
                             type="text"
                             class="form-control achieve_title"
                             id=""
                             onkeyup="generateCV()"
-                            placeholder="e.g. mahiicric@gmail.com"
+                            placeholder="e.g. Best Employee Award"
                           />
                           <span class="form-text"></span>
                         </div>
                         <div class="form-elem">
                           <label for="" class="form-label"
-                            >Summary / Description</label
+                            >Description</label
                           >
                           <input
                             name="achieve_description"
@@ -203,7 +202,7 @@
                             class="form-control achieve_description"
                             id=""
                             onkeyup="generateCV()"
-                            placeholder="e.g.mahiicric@gmail.com"
+                            placeholder="e.g. Increased sales by 30% through process improvements."
                           />
                           <span class="form-text"></span>
                         </div>
@@ -231,7 +230,7 @@
 
             <div class="cv-form-blk">
               <div class="cv-form-row-title">
-                <h3>Expertise / Experience</h3>
+                <h3>WORK EXPERIENCE</h3>
               </div>
 
               <div class="row-separator repeater experience-repeater">
@@ -240,38 +239,38 @@
                     <div class="cv-form-row cv-form-row-experience">
                       <div class="cols-3">
                         <div class="form-elem">
-                          <label for="" class="form-label">About</label>
+                          <label for="" class="form-label">Job Title</label>
                           <input
                             name="exp_title"
                             type="text"
                             class="form-control exp_title"
                             id=""
                             onkeyup="generateCV()"
-                            placeholder="Title"
+                            placeholder="e.g. Software Engineer"
                           />
                           <span class="form-text"></span>
                         </div>
                         <div class="form-elem">
-                          <label for="" class="form-label">Workplace </label>
+                          <label for="" class="form-label">Company Name</label>
                           <input
                             name="exp_organization"
                             type="text"
                             class="form-control exp_organization"
                             id=""
                             onkeyup="generateCV()"
-                            placeholder="exp_organization"
+                            placeholder="e.g. ABC Technologies"
                           />
                           <span class="form-text"></span>
                         </div>
                         <div class="form-elem">
-                          <label for="" class="form-label">Address</label>
+                          <label for="" class="form-label">Location</label>
                           <input
                             name="exp_location"
                             type="text"
                             class="form-control exp_location"
                             id=""
                             onkeyup="generateCV()"
-                            placeholder="location"
+                            placeholder="e.g. Bengaluru, India"
                           />
                           <span class="form-text"></span>
                         </div>
@@ -290,7 +289,7 @@
                           <span class="form-text"></span>
                         </div>
                         <div class="form-elem">
-                          <label for="" class="form-label">Finish Date</label>
+                          <label for="" class="form-label">End Date</label>
                           <input
                             name="exp_end_date"
                             type="date"
@@ -308,6 +307,7 @@
                             class="form-control exp_description"
                             id=""
                             onkeyup="generateCV()"
+                            placeholder="Describe your role and key achievements."
                           />
                           <span class="form-text"></span>
                         </div>
@@ -357,14 +357,14 @@
                           <span class="form-text"></span>
                         </div>
                         <div class="form-elem">
-                          <label for="" class="form-label">Qualification</label>
+                          <label for="" class="form-label">Degree</label>
                           <input
                             name="edu_degree"
                             type="text"
                             class="form-control edu_degree"
                             id=""
                             onkeyup="generateCV()"
-                            placeholder="BE CSE"
+                            placeholder="e.g. B.E. Computer Science"
                           />
                           <span class="form-text"></span>
                         </div>
@@ -395,7 +395,7 @@
                           <span class="form-text"></span>
                         </div>
                         <div class="form-elem">
-                          <label for="" class="form-label">Finish Date</label>
+                          <label for="" class="form-label">Graduation Date</label>
                           <input
                             name="edu_graduation_date"
                             type="date"
@@ -413,6 +413,7 @@
                             class="form-control edu_description"
                             id=""
                             onkeyup="generateCV()"
+                            placeholder="Briefly describe your academic achievements or activities."
                           />
                           <span class="form-text"></span>
                         </div>
@@ -441,7 +442,7 @@
 
             <div class="cv-form-blk">
               <div class="cv-form-row-title">
-                <h3>Venture / Projects</h3>
+                <h3>Projects</h3>
               </div>
 
               <div class="row-separator repeater project-repeater">
@@ -450,7 +451,7 @@
                     <div class="cv-form-row cv-form-row-experience">
                       <div class="cols-3">
                         <div class="form-elem">
-                          <label for="" class="form-label">Endeavor Name</label>
+                          <label for="" class="form-label">Project Name</label>
                           <input
                             name="proj_title"
                             type="text"
@@ -462,14 +463,14 @@
                           <span class="form-text"></span>
                         </div>
                         <div class="form-elem">
-                          <label for="" class="form-label">Endeavor link</label>
+                          <label for="" class="form-label">Project Link</label>
                           <input
                             name="proj_link"
                             type="text"
                             class="form-control proj_link"
                             id=""
                             onkeyup="generateCV()"
-                            placeholder="www.chatcafe.com"
+                            placeholder="e.g. https://chatcafe.com"
                           />
                           <span class="form-text"></span>
                         </div>
@@ -481,6 +482,7 @@
                             class="form-control proj_description"
                             id=""
                             onkeyup="generateCV()"
+                            placeholder="Briefly describe the project and your contribution."
                           />
                           <span class="form-text"></span>
                         </div>
@@ -508,7 +510,7 @@
 
             <div class="cv-form-blk">
               <div class="cv-form-row-title">
-                <h3>Proficiencies</h3>
+                <h3>Skills</h3>
               </div>
 
               <div class="row-separator repeater skill-repeater">
@@ -517,7 +519,7 @@
                     <div class="cv-form-row cv-form-row-skills">
                       <div class="form-elem">
                         <label for="" class="form-label"
-                          >Which Skill are you expertise in</label
+                          >Technical Skill</label
                         >
                         <input
                           name="skill"
@@ -525,7 +527,7 @@
                           class="form-control skill"
                           id=""
                           onkeyup="generateCV()"
-                          placeholder="Web-Technology"
+                          placeholder="e.g. JavaScript"
                         />
                         <span class="form-text"></span>
                       </div>
@@ -581,7 +583,7 @@
                     </h2>
 
                   <p class="preview-header__subtitle">
-    See how your resume looks.
+    Preview your resume before downloading.
 </p>
                 </div>
 
@@ -605,7 +607,7 @@
         class="preview-header__btn-icon"
     >
 
-    <span>Print CV</span>
+    <span>Print Resume</span>
 </button>
              
             </div>
@@ -780,11 +782,9 @@
     <footer class="footer bg-dark">
       <div class="container">
         <div class="footer-content text-center">
-          <p class="fs-15">
-            &copy; Copyright <span class="footer-year">2026</span>. All Rights
-            Reserved -
-            <span>resume.mine.in</span>
-          </p>
+         <p class="fs-15">
+  &copy; <span class="footer-year">2026</span> Easy CV. All Rights Reserved.
+</p>
         </div>
       </div>
     </footer>
