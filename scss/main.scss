@@ -1732,20 +1732,74 @@ button:hover {
 @include hplaptop() {
   .final {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     text-align: center;
 
-    gap: 3rem;
+    gap: 3.5rem;
+
+    padding: 6rem 2rem;
   }
 
-  .final img {
+  .resume-glow {
+    width: 360px;
+    height: 360px;
+
+    left: 50%;
+    top: 18%;
+
+    transform: translateX(-50%);
+  }
+
+  .final-image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .final-image img {
+    width: 100%;
     max-width: 320px;
   }
 
-  .final h3 {
-    font-size: 2rem;
+  .final-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    max-width: 90%;
+    max-width: 100%;
+
+    padding-top: 0;
+  }
+
+  .preview-badge {
+    margin-bottom: 1.8rem;
+  }
+
+  .final-content h3 {
+    font-size: 2rem;
+    max-width: 100%;
+
+    margin-bottom: 1.6rem;
+  }
+
+  .title-line {
+    margin: 0 auto 2rem;
+  }
+
+  .final-content p {
+    max-width: 100%;
+    margin-bottom: 2.8rem;
+  }
+
+  .preview-btn {
+    margin: 0 auto;
+  }
+
+  .final::before,
+  .final::after {
+    display: none;
   }
 }
 
@@ -1812,7 +1866,7 @@ button:hover {
       "interview"
       "resume";
 
-    gap: 2rem;
+    gap: 1.5rem;
   }
   .section-one-grid::before,
   .section-one-grid::after {
