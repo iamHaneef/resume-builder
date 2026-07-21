@@ -380,6 +380,11 @@ h6:hover {
   height: 37px;
   position: relative;
 }
+@media screen and (max-width: 1000px) {
+  .brand-and-toggler .spinner {
+    display: none;
+  }
+}
 
 .spinner::before,
 .spinner::after {
@@ -1249,15 +1254,14 @@ textarea {
 }
 
 .resume-paper {
-  width: fit-content;
+  width: max-content;
+  flex-shrink: 0;
   min-height: 297mm;
   padding: 0.75rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08), 0 3px 10px rgba(15, 23, 42, 0.05);
-  border: 1px solid rgba(15, 23, 42, 0.05);
   background: #fff;
   border-radius: 16px;
-  transition: box-shadow 0.25s ease;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08), 0 3px 10px rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.05);
 }
 
 .resume-paper:hover {
@@ -1274,19 +1278,6 @@ textarea {
   border-radius: 10px;
   background: #fff;
   animation: zoomIn 0.45s ease;
-}
-@media screen and (max-width: 1000px) {
-  .preview-cnt .preview-workspace {
-    padding: 2rem;
-  }
-  .preview-cnt .resume-paper {
-    padding: 2rem;
-  }
-  .preview-cnt .preview-cnt {
-    width: 100%;
-    max-width: 794px;
-    min-height: auto;
-  }
 }
 
 @keyframes zoomIn {
@@ -1620,6 +1611,24 @@ textarea {
 .footer-year {
   color: #1ec99b;
   font-weight: 500;
+}
+
+@media screen and (max-width: 1000px) {
+  .preview-workspace {
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .resume-paper {
+    flex-shrink: 0;
+    padding: 0.75rem;
+  }
+  .preview-cnt {
+    width: 794px;
+    min-height: 1123px;
+  }
 }
 
 /*# sourceMappingURL=resume.css.map */
