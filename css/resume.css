@@ -303,20 +303,17 @@ button:hover {
   grid-column: 2;
   justify-self: center;
   margin: 0;
-  text-align: center;
-  white-space: nowrap;
-  font-size: 23px;
+  font-size: 24px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
   line-height: 1.1;
-  color: #315f58;
+  color: var(--clr-green);
   transition: color 0.25s ease;
-  cursor: pointer;
 }
 .text-uppercase span {
-  color: var(--clr-green);
-  font-weight: 700;
+  color: #6bb4a9;
+  font-weight: 650;
 }
 .text-uppercase:hover {
   color: #2c5751;
