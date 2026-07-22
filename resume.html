@@ -1,9 +1,9 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Resume Page</title>
+    <title>Easy CV : Resume Builder</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- custom css -->
@@ -15,8 +15,10 @@
       <div class="container">
         <div class="navbar-content">
           <div class="brand-and-toggler">
-            <div class="spinner"></div>
-            <h6 class="text-uppercase">Resume Builder</h6>
+            <!-- <div class="spinner"></div> -->
+            <h6 class="text-uppercase">
+  Career <span>Resume</span> Builder
+</h6>
             <!-- <a href="index.html" class="navbar-brand">
                  <img
                 src="https://cdn4.iconfinder.com/data/icons/staff-management-vol-1/72/34-512.png"
@@ -181,7 +183,9 @@
                     <div class="cv-form-row cv-form-row-achievement">
                       <div class="cols-2">
                         <div class="form-elem">
-                          <label for="" class="form-label">Achievement Title</label>
+                          <label for="" class="form-label"
+                            >Achievement Title</label
+                          >
                           <input
                             name="achieve_title"
                             type="text"
@@ -193,9 +197,7 @@
                           <span class="form-text"></span>
                         </div>
                         <div class="form-elem">
-                          <label for="" class="form-label"
-                            >Description</label
-                          >
+                          <label for="" class="form-label">Description</label>
                           <input
                             name="achieve_description"
                             type="text"
@@ -395,7 +397,9 @@
                           <span class="form-text"></span>
                         </div>
                         <div class="form-elem">
-                          <label for="" class="form-label">Graduation Date</label>
+                          <label for="" class="form-label"
+                            >Graduation Date</label
+                          >
                           <input
                             name="edu_graduation_date"
                             type="date"
@@ -518,9 +522,7 @@
                   <div data-repeater-item>
                     <div class="cv-form-row cv-form-row-skills">
                       <div class="form-elem">
-                        <label for="" class="form-label"
-                          >Technical Skill</label
-                        >
+                        <label for="" class="form-label">Technical Skill</label>
                         <input
                           name="skill"
                           type="text"
@@ -558,64 +560,60 @@
     </section>
     <section class="resume-preview-section">
       <section class="preview-header">
-    <div class="container">
-<a href="index.html" class="preview-back-btn">
-    <img src="./assets/left-arrow.png" alt="" class="preview-back-icon">
-    <span>Back to Home</span>
-</a>
-        <div class="preview-header__content">
-          
-
+        <div class="container">
+          <a href="index.html" class="preview-back-btn">
+            <img
+              src="./assets/left-arrow.png"
+              alt=""
+              class="preview-back-icon"
+            />
+            <span>Back to Home</span>
+          </a>
+          <div class="preview-header__content">
             <div class="preview-header__info">
+              <div class="preview-header__icon">
+                <img
+                  src="./assets/camera.png"
+                  alt="Resume Preview"
+                  class="preview-header__icon-img"
+                />
+              </div>
 
-                <div class="preview-header__icon">
-    <img
-        src="./assets/camera.png"
-        alt="Resume Preview"
-        class="preview-header__icon-img"
-    >
-</div>
-               
+              <div class="preview-header__text">
+                <h2 class="preview-header__title">Resume Preview</h2>
 
-                <div class="preview-header__text">
-                    <h2 class="preview-header__title">
-                        Resume Preview
-                    </h2>
-
-                  <p class="preview-header__subtitle">
-    Preview your resume before downloading.
-</p>
-                </div>
-
+                <p class="preview-header__subtitle">
+                  Preview your resume before downloading.
+                </p>
+              </div>
             </div>
 
             <div class="preview-header__actions">
+              <button
+                id="newResumeBtn"
+                class="preview-header__btn preview-header__btn--secondary"
+              >
+                <i class="fa-solid fa-file-circle-plus"></i>
+                <span>New Resume</span>
+              </button>
+              <button
+                type="button"
+                id="printResumeBtn"
+                class="preview-header__btn preview-header__btn--primary"
+                onclick="printCV()"
+              >
+                <img
+                  src="./assets/printer.png"
+                  alt="Print"
+                  class="preview-header__btn-icon"
+                />
 
-                <button id="newResumeBtn" class="preview-header__btn preview-header__btn--secondary">
-    <i class="fa-solid fa-file-circle-plus"></i>
-    <span>New Resume</span>
-</button>
-<button
-    type="button"
-    id="printResumeBtn"
-    class="preview-header__btn preview-header__btn--primary"
-    onclick="printCV()"
->
-    <img
-        src="./assets/printer.png"
-        alt="Print"
-        class="preview-header__btn-icon"
-    >
-
-    <span>Print Resume</span>
-</button>
-             
+                <span>Print Resume</span>
+              </button>
             </div>
-
+          </div>
         </div>
-
-    </div>
-</section>
+      </section>
 
       <section id="preview-sc" class="print_area">
         <div class="container">
@@ -719,72 +717,60 @@
       </section>
     </section>
 
-      <!-- =========================================
+    <!-- =========================================
      New Resume Confirmation Modal
 ========================================= -->
 
-<div id="newResumeModal" class="modal-overlay">
-  <div class="modal-card">
+    <div id="newResumeModal" class="modal-overlay">
+      <div class="modal-card">
+        <div class="modal-content">
+          <div class="modal-icon">
+            <img src="./assets/document-edit.png" alt="New Resume" />
+          </div>
 
-    <div class="modal-content">
+          <h3>Start a New Resume?</h3>
 
-      <div class="modal-icon">
-        <img src="./assets/document-edit.png" alt="New Resume">
+          <p>
+            Your current draft will be permanently deleted.<br />
+            This action cannot be undone.
+          </p>
+        </div>
+
+        <div class="modal-actions">
+          <button id="cancelNewResume" class="modal-btn modal-btn-secondary">
+            Cancel
+          </button>
+
+          <button id="confirmNewResume" class="modal-btn modal-btn-primary">
+            Start New
+          </button>
+        </div>
       </div>
-
-      <h3>Start a New Resume?</h3>
-
-      <p>
-        Your current draft will be permanently deleted.<br>
-        This action cannot be undone.
-      </p>
-
     </div>
 
-    <div class="modal-actions">
+    <!-- jquery cdn -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.js"
+      integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+      crossorigin="anonymous"
+    ></script>
+    <!-- jquery repeater cdn -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.repeater/1.2.1/jquery.repeater.js"
+      integrity="sha512-bZAXvpVfp1+9AUHQzekEZaXclsgSlAeEnMJ6LfFAvjqYUVZfcuVXeQoN5LhD7Uw0Jy4NCY9q3kbdEXbwhZUmUQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
-      <button
-        id="cancelNewResume"
-        class="modal-btn modal-btn-secondary"
-      >
-        Cancel
-      </button>
-
-      <button
-        id="confirmNewResume"
-        class="modal-btn modal-btn-primary"
-      >
-        Start New
-      </button>
-
-    </div>
-
-  </div>
-</div>
-
-      <!-- jquery cdn -->
-      <script
-        src="https://code.jquery.com/jquery-3.6.4.js"
-        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
-        crossorigin="anonymous"
-      ></script>
-      <!-- jquery repeater cdn -->
-      <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.repeater/1.2.1/jquery.repeater.js"
-        integrity="sha512-bZAXvpVfp1+9AUHQzekEZaXclsgSlAeEnMJ6LfFAvjqYUVZfcuVXeQoN5LhD7Uw0Jy4NCY9q3kbdEXbwhZUmUQ=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-      ></script>
-
-      <script src="js/script.js"></script>
-      <script src="js/app.js"></script>
-    </div>
+    <script src="js/script.js"></script>
+    <script src="js/app.js"></script>
     <footer class="footer bg-dark">
       <div class="container">
         <div class="footer-content text-center">
-         <p class="fs-15">
-  &copy; <span class="footer-year">2026</span> Easy CV. All Rights Reserved.
-</p>
+          <p class="fs-15">
+            &copy; <span class="footer-year">2026</span> Easy CV. All Rights
+            Reserved.
+          </p>
         </div>
       </div>
     </footer>

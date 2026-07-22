@@ -38,24 +38,15 @@ body {
   color: var(--clr-dark);
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body::-webkit-scrollbar-button {
+  display: none;
+}
+
 /* Chrome, Edge, Safari */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f2f2f2;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #7d7d7d;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
 /* Basic Element Styles */
 button,
 img,
@@ -288,30 +279,35 @@ button:hover {
 }
 
 .text-span {
-  font-weight: 500;
+  font-weight: 100;
 }
 
 .text-uppercase {
   grid-column: 2;
   justify-self: center;
   margin: 0;
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  color: #0f4d43;
-  line-height: 1;
-  transition: color 0.25s ease, transform 0.25s ease;
-  cursor: pointer;
+  line-height: 1.1;
+  color: var(--clr-green);
+  transition: color 0.25s ease;
+}
+.text-uppercase span {
+  color: #6bb4a9;
+  font-weight: 650;
 }
 .text-uppercase:hover {
-  color: #0c6354;
-  transform: translateY(-1px);
+  color: #2c5751;
+}
+.text-uppercase:hover span {
+  color: #4fb894;
 }
 @media screen and (max-width: 1000px) {
   .text-uppercase {
     font-size: 16px;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.8px;
   }
 }
 

@@ -76,24 +76,11 @@ body {
   overflow-x: hidden;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 /* Chrome, Edge, Safari */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f2f2f2;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #7d7d7d;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
 button,
 img,
 a {
@@ -312,25 +299,36 @@ button:hover {
 /* ===========================
    Center Title
 =========================== */
-h6 {
+.text-uppercase {
   grid-column: 2;
+  justify-self: center;
   margin: 0;
   text-align: center;
   white-space: nowrap;
-  font-size: 21px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  color: rgb(27, 62, 0);
-  transition: color 0.3s ease;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: #315f58;
+  transition: color 0.25s ease;
   cursor: pointer;
 }
-@media screen and (max-width: 1000px) {
-  h6 {
-    font-size: 20px;
-  }
+.text-uppercase span {
+  color: var(--clr-green);
+  font-weight: 700;
 }
-
-h6:hover {
-  color: gray;
+.text-uppercase:hover {
+  color: #2c5751;
+}
+.text-uppercase:hover span {
+  color: #4fb894;
+}
+@media screen and (max-width: 1000px) {
+  .text-uppercase {
+    font-size: 16px;
+    letter-spacing: 0.8px;
+  }
 }
 
 /* ===========================
